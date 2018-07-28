@@ -1,0 +1,38 @@
+//
+// hirokoymj.com - Header, Page header
+// Mobile First Method.
+// Created by HY.
+// Updated: 2017-07-19, 2018-07-21 
+
+
+.page-header{
+	background:$brand-primary;
+	height: 44px;
+	margin: 0;
+	//margin-bottom:20px;
+	h1{
+	  //font-family: $function-probook;
+		color: $white; 
+		text-transform:uppercase;
+		font-weight:normal;
+		text-align:center;
+		font-size: 22px;
+		line-height: 44px;
+		margin: 0;
+	}
+}
+
+/* Desktop (>= 768px)
+-------------------------------------------------- */
+@media (min-width: 768px) {
+	.page-header{
+		height: 88px;
+		//margin-bottom: 10px;
+		h1{
+			color: $white;
+			text-align:left;
+			line-height: 88px;
+			font-size: 24px;
+		}
+	}
+}

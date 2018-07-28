@@ -1,0 +1,44 @@
+
+.documentPage{
+  .link-form{
+    background: #ededed;
+    padding:25px 15px;
+  }
+  .link-view{
+    .link-table{
+      width: 100%;
+    }
+    .link-list{
+      padding-left: 25px;
+      span{
+        padding-right: 7px;
+      }
+    }
+    .section-title {
+      background: #fff url(http://www.hirokoymj.com/images/dot.gif) no-repeat 0 0;
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      h3{
+          padding: 5px 0 8px 25px;
+          font-size: 18px;
+          line-height: 22px;
+          border-bottom: 1px solid #ccc;
+      }
+    }    
+  }
+}
+
+
+/* Desktop (>= 768px)
+-------------------------------------------------- */
+@media (min-width: 768px) {}
+
+/* Desktop (>= 998px)
+-------------------------------------------------- */
+@media (min-width: 998px) {}
+
+/* Desktop (>= 1200px)
+-------------------------------------------------- */
+@media (min-width: 1200px) {}

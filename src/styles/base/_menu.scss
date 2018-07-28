@@ -1,0 +1,152 @@
+//
+//.menu Style
+// www.hirokoymj.com
+// Mobile First Method.
+// Created by HY.
+// Last updated: 2017-07-23 12:27PM
+// --------------------------------------------------
+
+.site-header{
+  position: relative; //Must define relative so that a dropdown.menu is stretch 100% for desktop.
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  + .container{
+      height: 60px;
+  }
+}
+
+.site-logo{
+  float: left;
+  margin-top: 20px;
+  margin-right: 25px;
+  a{
+      display: block;
+  }
+}
+
+.mobile-icon{
+  display:block;
+  padding-top: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+  text-align: right;
+  .fa{
+      color: #000;
+      font-size: 30px;
+      margin-top: 10px;
+  }
+  &:hover .fa{
+      color:#7F7E7E;
+  }
+}
+
+nav{
+  float: right;
+  .show{
+    display: block;
+  }
+  .menu{
+      position: absolute;
+      width:100%;
+      top:60px;
+      left:0px;
+      display:none;
+      //background:#53595d;
+      background:#fff;
+      margin: 0;
+      padding: 0;
+      z-index:999;
+
+      li{
+          display: block;
+          margin: 0;
+      }
+      // common link style including links in dropdown.
+      li a{
+          display:block;
+          padding: 20px;
+          text-align:center;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 400;
+          font-size:18px;
+          color: #000;
+          text-decoration: none;
+          //font-weight: 600;
+      }
+      li > a{ // top level link only
+          border-top: solid 1px #9a9a9a;
+          //border-bottom: solid 1px #333;
+          &:hover{
+              //background: #47494a;
+              background: #f4f4f4;
+          }
+      }
+  } // end of .menu
+} // end of nav
+
+
+.mobile-nav-mask {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.7);
+  z-index: 996;
+}
+
+
+/* Desktop (>= 768px)
+-------------------------------------------------- */
+@media (min-width: 768px) {
+  .mobile-icon{
+      display: none;
+  }
+  .mobile-nav-mask { // Hidden mask for desktop
+      display: none!important;
+  }
+
+
+  nav{
+      float: left;
+      .menu{
+          display: block!important; // the menu is always displayed.
+          position: static;// Needs 'static' to extend a dropdown to 100% width.
+          top: 0;
+          background: #fff;
+
+          li{
+              display: inline-block;
+              margin: 0;
+              height: 60px;
+              border: 0;
+          }
+          li > a{
+              text-decoration: none;
+              color: $text-color;
+              font-family: 'Open Sans' sans-serif;
+              font-size:15px;
+              text-align:left;
+              line-height: 60px;
+              padding: 0px 15px;
+              border: 0;
+              &:hover{
+                  color:$brand-primary;
+                  background: $white;
+                  .glyphicon-th{
+                      font-size: 18px;
+                      color: $brand-primary;
+                  }
+              }
+          }
+      }
+  }
+}// end of media query
+
+
+
+
+
+
+

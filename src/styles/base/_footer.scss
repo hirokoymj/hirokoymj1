@@ -1,0 +1,137 @@
+//
+// hirokoymj.com - FOOTER
+// Mobile First Method.
+// Created by HY.
+// Updated: 2017-07-19, 2018-07-21 
+
+//START: Sticky footer
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 80px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.42857143
+}
+
+.site-footer {
+	//START: Sticky footer
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 80px;/* Set the fixed height of the footer here */
+	//END: Sticky footer
+	background-color: #121416;
+
+	/* ==============
+       Copyright
+     =============== */
+	.footer-bottom{
+		border-top: 1px solid $gray-dark-lighter;
+	}
+
+	.copyright{
+		font-size: .9em;
+		font-family: 'Open Sans', sans-serif;
+		text-align:center;
+		color:#757575;
+		padding: 12px 0;
+
+	}
+	.current-year{
+		padding: 0 5px;
+	}
+
+	/* ==============
+       footer Icons
+     =============== */
+	.icon-email{
+		float: left;
+		color: $gray-dark-lighter;
+		&:hover{
+			color: $brand-primary;
+		}
+		.fa-lg{
+			font-size: 1.7em;
+		}
+		.fa-envelope{
+			color:#000;
+		}
+	}
+	// Github Icon
+	.icon-github{
+		float: left;
+		color: $gray-dark-lighter;
+		margin-right: 5px;
+
+		&:hover{
+			color: $brand-primary;
+		}
+		.fa-github{
+			font-size: 3.2em;
+		}
+	}
+	.footer-icons{
+		text-align: center;
+		.icons-container{
+			display: inline-block;
+		}
+	}
+}
+
+
+/* Desktop (>= 768px)
+-------------------------------------------------- */
+@media (min-width: 768px) {
+	.site-footer{
+		/* ==============
+      Sticky footer
+    =============== */
+//		height: 320px;
+
+		.copyright{
+			text-align: left;
+		}
+		.footer-logo{
+			text-align: left;
+		}
+
+		ul.footer-nav{
+			text-align: left;
+		}
+		ul.footer-nav > li{
+			display: inline-block;
+			vertical-align: top;
+			padding-right: 25px;
+			text-align: center;
+		}
+		.footer-icons{
+			text-align: right;
+			padding: 10px 0;
+			.icons-container{
+				display: inline-block;
+			}
+		}
+
+
+	}
+}
+
+/* Desktop (>= 992px)
+-------------------------------------------------- */
+@media screen and (min-width: 992px) {
+	.site-footer{
+		ul.footer-nav > li{
+			width: 20%;
+		}
+	}
+
+}
+
+
+
