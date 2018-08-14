@@ -1,10 +1,11 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../../firebase/firebase3";
-import Test from './Test';
+import LinkForm from './LinkForm';
+import Menu from './Menu';
 
 
-export default class TestAddLinkPage extends React.Component{
+export default class AddLinkPage extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -52,7 +53,7 @@ export default class TestAddLinkPage extends React.Component{
   }
 
   render(){
-    console.log('TestControlPage - render');
+    console.log('LinkFormControlPage - render');
     //console.log(this.state.subCategoryItems);
     //
     // Preparing default dropdown default value.
@@ -65,8 +66,14 @@ export default class TestAddLinkPage extends React.Component{
       <div>
         <Grid>
           <Row>
-            <Col xs={8} >
-              <Test 
+            <Col xs={12}>
+            <Menu />
+            </Col>
+          </Row>          
+          <Row>
+            <Col xs={12} sm={8}>
+              <h1>Create Link Page</h1>
+              <LinkForm 
                 categoryItems={this.state.categoryItems} 
                 categoryDefaultValue="js" 
                 subCategoryItems={this.state.subCategoryItems} 

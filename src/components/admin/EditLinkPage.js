@@ -1,11 +1,11 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../../firebase/firebase3";
-// import Test from './Test';
-import TestList from './TestList';
+import EditLinkForm from './EditLinkForm';
+import Menu from './Menu.js';
 
 
-export default class TestControlPage extends React.Component{
+export default class EditLinkPage extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -53,22 +53,26 @@ export default class TestControlPage extends React.Component{
   }
 
   render(){
-    console.log('TestControlPage - render');
+    console.log('EditLinkPage - render');
     //console.log(this.state.subCategoryItems);
-    //
-    // Preparing default dropdown default value.
-    // 'JS' is the default in category dropdown.
-    const filteredSubCategory = this.state.subCategoryItems.filter(item => item.categoryId === 'js');
-    let subCategoryId = filteredSubCategory.length !==0 ? filteredSubCategory[0].subId : '';  
-    console.log(subCategoryId);
     
     return (
       <div>
         <Grid>
           <Row>
-              <Col xs={8} >
-              <TestList subCategoryItems={this.state.subCategoryItems} />
-              </Col>
+            <Col xs={12}>
+            <Menu />
+            </Col>
+          </Row>           
+          <Row>
+            <Col xs={12} sm={8}>
+            <h1>Edit Link Page</h1>
+              <EditLinkForm 
+                categoryItems={this.state.categoryItems} 
+                subCategoryItems={this.state.subCategoryItems} 
+                linkItem={this.props.location.state.linkItem}
+              />
+            </Col>            
           </Row>
         </Grid>
       </div>
@@ -76,9 +80,3 @@ export default class TestControlPage extends React.Component{
   }
 }
 
-// <Test 
-// categoryItems={this.state.categoryItems} 
-// categoryDefaultValue="js" 
-// subCategoryItems={this.state.subCategoryItems} 
-// subCategoryDefaultValue={subCategoryId} 
-// />

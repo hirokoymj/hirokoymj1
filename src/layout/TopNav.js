@@ -20,16 +20,16 @@ export default class TopNav extends React.Component{
     return (
       <header className="site-header">
         <Grid>			
-        <div className="site-logo"><a href="/"><img src="/images/logo.png" /></a></div>
+        <div className="site-logo"><NavLink to="/" exact={true}><img src="/images/logo.png" /></NavLink></div>
         <nav>
           <div className="mobile-icon" onClick={this.handleToggle}><i className="fa fa-bars" aria-hidden="true"></i></div>
           {this.state.isShow}
           <ul className={this.state.isShow ? 'menu show' : 'menu'}>
-            <li><NavLink to="/" activeClassName="is-active" exact={true}>Home</NavLink></li>
-            <li><NavLink to="/document/js">JavaScript</NavLink></li>
-            <li><NavLink to="/document/es6">ES6</NavLink></li>
-            <li><NavLink to="/document/php">PHP</NavLink></li>
-            <li><NavLink to="/document/html">HTML/CSS</NavLink></li>
+            
+            <li><NavLink to="/document/js" activeClassName="is-active">JavaScript</NavLink></li>
+            <li><NavLink to="/document/es6" activeClassName="is-active">ES6</NavLink></li>
+            <li><NavLink to="/document/php" activeClassName="is-active">PHP</NavLink></li>
+            <li><NavLink to="/document/html" activeClassName="is-active">HTML/CSS</NavLink></li>
           </ul>
         </nav>
         </Grid>
@@ -38,4 +38,5 @@ export default class TopNav extends React.Component{
   }
 }
 
+// <li><NavLink to="/" activeClassName="is-active" exact={true}>Home</NavLink></li>
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import firebase from "../../firebase/firebase3";
 import {Table} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export default class TestList extends React.Component{
+export default class LinkList extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -13,26 +14,30 @@ export default class TestList extends React.Component{
   componentDidMount(){
     this.getLinkData();
   }
-  getLinkData(categoryId){
-    const query = firebase.database().ref('links').orderByChild('categoryId');
+  componentWillUnmount() {
+    this.isUnmounted = true;
+  }
+  getLinkData(){
+    console.log('LinkList - getLinkData')
+    const query = firebase.database().ref('links').orderByChild('subCategoryId');
     query.on('value', (snapshot)=>{
       let result = [];
       snapshot.forEach((childSnapshot)=>{
-//        if(childSnapshot.val().categoryId === categoryId){
           let key = childSnapshot.key;
           const obj = Object.assign({id:key}, childSnapshot.val());
           result.push(obj);
-//        }
-      })
+      });
       console.log(result);
-      this.setState(()=>({linkItems: result}));
+      if(!this.isUnmounted){
+        this.setState(()=>({linkItems: result}));
+      }
     });
   }
 
   compare(a,b) {
-    if (a.subcategoryId < b.subcategoryId)
+    if (a.subCategoryId < b.subCategoryId)
       return -1;
-    if (a.subcategoryId > b.subcategoryId)
+    if (a.subCategoryId > b.subCategoryId)
       return 1;
     return 0;
   }
@@ -50,21 +55,20 @@ export default class TestList extends React.Component{
   render(){
     console.log('TestList - render');
 
-    this.state.linkItems.sort(this.compare);
-
+    // Replacing subCategoryId to a title name.
     const output = this.state.linkItems.map((linkItem)=>{
-      const obj = this.props.subCategoryItems.find(subItem => linkItem.subcategoryId === subItem.subId )
-      // console.log(obj);
-      // console.log(obj.title);
+      const obj = this.props.subCategoryItems.find((subItem) =>{ 
+        return linkItem.subCategoryId === subItem.subId
+      })
+      //console.log(obj);
       if(obj !== undefined){
-        linkItem.subcategoryId = obj['title'];
+        linkItem['subCategoryTitle'] = obj['title'];
       }
       return linkItem;
     });
 
     return (
       <div>
-        <h1>List</h1>
         <Table responsive>
         <thead>
         <tr>
@@ -72,6 +76,7 @@ export default class TestList extends React.Component{
           <th>Sub Category</th>
           <th>Link</th>
           <th>Delete</th>
+          <th>Edit</th>
         </tr>
         </thead>
         <tbody>
@@ -80,9 +85,15 @@ export default class TestList extends React.Component{
             return (
               <tr key={item.id}>
                 <td>{item.categoryId}</td>
-                <td>{item.subcategoryId}</td>
+                <td>{item.subCategoryTitle}</td>
                 <td><a href={item.url}>{item.urlName}</a></td>
                 <td><button onClick={()=>this.handleDelete(item.id)}>Delete</button></td>
+                <td>
+                <Link to={{
+                  pathname: `/editLink/${item.id}`,
+                  state: {linkItem: item}
+                }}>Edit</Link>
+                </td>                
               </tr>
             )
           })

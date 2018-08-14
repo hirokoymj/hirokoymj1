@@ -1,0 +1,137 @@
+use strict
+https://github.com/hirokoymj/Udemy/blob/master/03_use_strict.md
+
+pass-by value and pass-by reference
+https://github.com/hirokoymj/Udemy/blob/master/04_pass-by-value-reference.md
+
+What are different types in JavaScript?
+https://github.com/hirokoymj/Udemy/blob/master/05_types.md
+
+What is difference between '==' and '==='?
+https://github.com/hirokoymj/Udemy/blob/master/05_types.md
+
+What is the type of NaN?
+https://github.com/hirokoymj/Udemy/blob/master/07_NaN.md
+
+What are the different scopes in JavaScript?
+https://github.com/hirokoymj/Udemy/blob/master/08_Scope.md
+
+What is variable hoisting?
+https://github.com/hirokoymj/Udemy/blob/master/09_hoisting.md
+
+What is the scope chain?
+https://github.com/hirokoymj/Udemy/blob/master/10_scope-chain.md
+
+IIFE Immidiately invoked function
+https://github.com/hirokoymj/Udemy/blob/master/11_IIFE.md
+
+Closure
+https://github.com/hirokoymj/Udemy/blob/master/12_Closure.md
+
+this
+https://github.com/hirokoymj/Udemy/blob/master/14_this.md
+
+call, apply and bind
+https://github.com/hirokoymj/Udemy/blob/master/15_call-apply-bind.md
+
+Prototype chain
+https://github.com/hirokoymj/Udemy/blob/master/16_prototype_chain.md
+
+Inheritance
+https://github.com/hirokoymj/Udemy/blob/master/17_inheritance.md
+
+Function Constructor - 1
+https://github.com/hirokoymj/Udemy/blob/master/18_ConstructorPattern1.md
+
+Function Constructor - 2
+https://github.com/hirokoymj/Udemy/blob/master/19_ConstructorPattern2.md
+
+Prototype 
+https://github.com/hirokoymj/Udemy/blob/master/20_PrototypePattern.md
+
+event bubbling and event capturing
+https://github.com/hirokoymj/Udemy/blob/master/23_Events.md
+
+CORS
+https://github.com/hirokoymj/Udemy/blob/master/21_CORS.md
+
+JSONP
+https://github.com/hirokoymj/Udemy/blob/master/22_JSONP.md
+
+//
+//ES6
+//
+Const
+https://github.com/hirokoymj/ES6/blob/master/1_Const/const.md
+
+Let
+https://github.com/hirokoymj/ES6/blob/master/2_Let/Let.md
+
+Fat Arrow Function
+https://github.com/hirokoymj/ES6/blob/master/3_FatArrow/fatArrow.md
+
+Object Destructuring
+https://github.com/hirokoymj/ES6/blob/master/4_Object-Destructuring/Destructuring.md
+
+Object Literal Shorthand
+https://github.com/hirokoymj/ES6/blob/master/5_Object-Literal-Shorthand/
+
+Object-literal-shorthand.md
+https://github.com/hirokoymj/ES6/blob/master/5_Object-Literal-Shorthand/object-literal-shorthand.md
+
+Spread Operator
+https://github.com/hirokoymj/ES6/blob/master/6_Spread-operator/spreadOperator.md
+
+For of/For in
+https://github.com/hirokoymj/ES6/blob/master/7_For-In-for-of/ForOf.md
+
+//
+//ES6 - Typescript
+//
+Typescript Setup
+https://github.com/hirokoymj/ES6#typescript-setup
+//
+//PHP
+//
+
+CRUD (Resultset)
+https://github.com/hirokoymj/PHP-MySQLi-Basic-Usage/blob/master/md-files/MySQLi.md
+
+CRUD (Prepared Statement)
+https://github.com/hirokoymj/PHP-MySQLi-Basic-Usage#select-single-value-prepared-statement
+
+Connect a Database
+https://github.com/hirokoymj/PHP-MySQLi-Basic-Usage#connect-database
+
+PHP Global Variables
+https://github.com/hirokoymj/PHP-MySQLi-Basic-Usage/blob/master/md-files/01_GlobalVariables.md
+
+Convert JSON object to associative array
+https://github.com/hirokoymj/PHP-MySQLi-Basic-Usage/blob/master/md-files/PHP-ajax.md
+
+
+// HTML - Front-end framework
+Bootstrap
+http://getbootstrap.com/
+
+Bootstrap grid system
+https://getbootstrap.com/docs/3.3/css/
+
+
+Bootstrap Helper Classes
+https://www.w3schools.com/bootstrap/bootstrap_ref_css_helpers.asp
+
+// HTML - CSS
+CSS Selector Reference
+https://www.w3schools.com/cssref/css_selectors.asp
+
+How to center floating elements in CSS
+https://github.com/hirokoymj/how-to-center-float-elements
+
+// HTML - SASS
+Sass
+http://sass-lang.com/
+
+Compass
+http://compass-style.org/
+

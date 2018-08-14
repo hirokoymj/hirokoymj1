@@ -4,22 +4,20 @@ import HomePage from '../components/HomePage';
 import NotFoundPage from '../components/NotFoundPage';
 import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
-//import CategoryForm from '../components/CategoryForm';
-//import SubCategoryForm from '../components/SubCategoryForm';
-import LinkPage from '../components/LinkPage';
-// Category Control Pages
-import CategoryPage from '../components/CategoryPage';
-import EditCategoryPage from '../components/EditCategoryPage';
-import CategoryList from '../components/CategoryList';
-import AddCategory from '../components/AddCategory';
-// Sub Category Control Pages
-import SubCategoryPage from '../components/SubCategoryPage';
-import SubCategoryEditForm from '../components/SubCategoryEditForm';
-// Test Control Page
-import TestControlPage from '../components/admin/TestControlPage';
-import TestAddLinkPage from '../components/admin/TestAddLinkPage';
-// Link Control Page
+// Tech Link Pages
+import DocumentPage from '../components/DocumentPage';
+// Admin Link Control pages
 import LinkControlPage from '../components/admin/LinkControlPage';
+import AddLinkPage from '../components/admin/AddLinkPage';
+import EditLinkPage from '../components/admin/EditLinkPage';
+// Admin Category Control Pages
+import CategoryControlPage from '../components/admin/CategoryControlPage';
+import AddCategoryPage from '../components/admin/AddCategoryPage';
+import EditCategoryPage from '../components/admin/EditCategoryPage';
+// Admin SubCategogry Pages
+import AddSubCategoryPage from '../components/admin/AddSubCategoryPage';
+import SubCatControlPage from '../components/admin/SubCatControlPage';
+import EditSubCatPage from '../components/admin/EditSubCatPage';
 
 
 export default class AppRouter extends React.Component{
@@ -29,15 +27,17 @@ export default class AppRouter extends React.Component{
 			<div>
 				<TopNav />
 				<Switch>
-					<Route path="/" component={HomePage} exact={true} />
-          <Route path="/document/:id" component={LinkPage} />
-          <Route path="/edit/:id" component={EditCategoryPage} />
-          <Route path="/catPage" component={CategoryPage} />
-          <Route path="/subCatPage" component={SubCategoryPage} />
-          <Route path="/editSub/:subId" component={SubCategoryEditForm} />
-          <Route path="/testControlPage" component={TestControlPage} />
-          <Route path="/testAddLinkPage" component={TestAddLinkPage} />
+          <Route path="/" component={HomePage} exact={true} />
+          <Route path="/document/:id" component={DocumentPage} />
+          <Route path="/categoryControlPage" component={CategoryControlPage} />
+          <Route path="/addCategoryPage" component={AddCategoryPage} />
+          <Route path="/editCategory/:id" component={EditCategoryPage} />
+          <Route path="/subCatControlPage" component={SubCatControlPage} />
+          <Route path="/addSubCategoryPage" component={AddSubCategoryPage} />
+          <Route path="/editSubCat/:id" component={EditSubCatPage} />
           <Route path="/linkControlPage" component={LinkControlPage} />
+          <Route path="/addLinkPage" component={AddLinkPage} />
+          <Route path="/editLink" component={EditLinkPage} />
           <Route component={NotFoundPage} />
         </Switch>
         <Footer />
@@ -60,3 +60,10 @@ export default class AppRouter extends React.Component{
 // Admin Page
 // <Route path="/cForm" component={CategoryForm} />} />
 // <Route path="/subForm" component={SubCategoryForm} />} />  
+//
+// 2018/08/12
+// <Route path="/catPage" component={CategoryPage} />
+// <Route path="/subCatPage" component={SubCategoryPage} />
+// <Route path="/editSub/:subId" component={SubCategoryEditForm} />
+//<Route path="/edit/:id" component={EditCategoryPage} />
+
