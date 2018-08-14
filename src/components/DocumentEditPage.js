@@ -8,7 +8,7 @@ class DocumentEditPage extends React.Component{
     super(props);
     this.state = {
       id: this.props.location.state.linkItem.id,
-      categoryId: this.props.linkItem.categoryId,
+      categoryId: this.props.location.state.linkItem.categoryId,
       subCategoryId: this.props.linkItem.subCategoryId,
       urlName: this.props.linkItem.urlName,
       url: this.props.linkItem.url
