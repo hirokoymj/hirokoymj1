@@ -6,6 +6,7 @@ import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
 // Tech Link Pages
 import DocumentPage from '../components/DocumentPage';
+import DocumentEditPage from '../components/DocumentEditPage';
 // Admin Link Control pages
 import LinkControlPage from '../components/admin/LinkControlPage';
 import AddLinkPage from '../components/admin/AddLinkPage';
@@ -29,6 +30,8 @@ export default class AppRouter extends React.Component{
 				<Switch>
           <Route path="/" component={HomePage} exact={true} />
           <Route path="/document/:id" component={DocumentPage} />
+          <Route path="/editDoc" component={DocumentEditPage} />
+
           <Route path="/categoryControlPage" component={CategoryControlPage} />
           <Route path="/addCategoryPage" component={AddCategoryPage} />
           <Route path="/editCategory/:id" component={EditCategoryPage} />

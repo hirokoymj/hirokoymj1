@@ -68,9 +68,7 @@ export default class DocumentPage extends React.Component{
         console.log('Error', e);
       });      
     }
-    onDelete = ()=>{
-      console.log(onDelete)
-    }		
+	
     render(){
 			console.log('LinkPage - render');
 			return (

@@ -1,13 +1,13 @@
 import React from 'react';
-import firebase from "../../firebase/firebase3";
+import firebase from "../firebase/firebase3";
 import { withRouter } from 'react-router';
 import {FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
 
-class EditLinkForm extends React.Component{
+class DocumentEditPage extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      id: this.props.linkItem.id,
+      id: this.props.location.state.linkItem.id,
       categoryId: this.props.linkItem.categoryId,
       subCategoryId: this.props.linkItem.subCategoryId,
       urlName: this.props.linkItem.urlName,
@@ -124,5 +124,5 @@ class EditLinkForm extends React.Component{
     )
   }
 }
-export default withRouter(EditLinkForm);
+export default withRouter(DocumentEditPage);
 

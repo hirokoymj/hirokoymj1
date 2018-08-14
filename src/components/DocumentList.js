@@ -24,8 +24,9 @@ export default class DocumentList extends React.Component{
         rows.push(
           <DocumentRow
             key={item.id}
-            documentItem={item}
+            item={item}
             onDelete={this.onDelete}
+            subCategoryItems={this.props.subCategoryItems}
           />
         );
         lastSubcategoryId = item.subCategoryId;        
@@ -46,7 +47,9 @@ export default class DocumentList extends React.Component{
     render(){
       console.log('DocumentList - render');
       console.log(this.props.subCategoryItems);
-      
+      /**
+       * Replacing subcategory ID to subcategory title.
+       */      
       const output = this.props.linkItems.map((linkItem)=>{
         const obj = this.props.subCategoryItems.find((subItem) =>{ 
           return linkItem.subCategoryId === subItem.subId
@@ -57,8 +60,11 @@ export default class DocumentList extends React.Component{
         return linkItem;
       });
       console.log(output);
-      const tableRow = this.createTableRow(output);
 
+      /**
+       * Creating table rows
+       */       
+      const tableRow = this.createTableRow(output);
 			return (
             <Table>
               <tbody>
