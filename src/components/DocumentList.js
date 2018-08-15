@@ -24,7 +24,7 @@ export default class DocumentList extends React.Component{
         rows.push(
           <DocumentRow
             key={item.id}
-            item={item}
+            documentItem={item}
             onDelete={this.onDelete}
             subCategoryItems={this.props.subCategoryItems}
           />

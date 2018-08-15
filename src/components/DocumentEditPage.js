@@ -1,128 +1,76 @@
 import React from 'react';
+import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../firebase/firebase3";
-import { withRouter } from 'react-router';
-import {FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
+import DocumentEditForm from './DocumentEditForm';
 
-class DocumentEditPage extends React.Component{
+
+export default class DocumentEditPage extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      id: this.props.location.state.linkItem.id,
-      categoryId: this.props.location.state.linkItem.categoryId,
-      subCategoryId: this.props.linkItem.subCategoryId,
-      urlName: this.props.linkItem.urlName,
-      url: this.props.linkItem.url
+      categoryItems:[],
+      subCategoryItems: [],
     }
   }
 
-  handleCategoryChange = (e)=>{
-    console.log(e.target.value);
-    let categoryId = e.target.value;
-    const filteredSubCategory = this.props.subCategoryItems.filter(item => item.categoryId === categoryId);
-    let subCategoryId = filteredSubCategory.length !==0 ? filteredSubCategory[0].subId : '';  
-//    console.log(subCategoryId);
-    this.setState({
-      categoryId,
-      subCategoryId
-    });
+  componentDidMount(){
+    this.getCategoryData();
+    this.getSubCategoryData();
   }
-  handleSubCategoryChange = (e)=>{
-    console.log(e.target.value);
-    let subCategoryId = e.target.value;
-    this.setState({
-      subCategoryId
-    });
+
+  getCategoryData(){
+    console.log('getCategoryData()');
+    const query = firebase.database().ref('categories').orderByKey();
+    query.on('value', (snapshot)=>{
+      const result = [];
+      snapshot.forEach((childSnapshot)=>{
+          let key = childSnapshot.key;
+          const obj = Object.assign({id:key}, childSnapshot.val());
+          result.push(obj);
+      })
+      this.setState(()=>({categoryItems: result}));
+    })
   }
-  handleChange = (e)=>{
-    console.log('handleChange');
-    this.setState({
-        [e.target.name]: e.target.value
-    });
+
+  getSubCategoryData(){
+    const query = firebase.database().ref('subcategories').orderByKey();
+    query.on('value', (snapshot)=>{
+        const result = [];
+        snapshot.forEach((childSnapshot => {
+            let categoryId = childSnapshot.key;
+            const obj = childSnapshot.val();
+            for (let key in obj){
+              var tmp = {}
+              tmp['categoryId'] = categoryId;
+              tmp['subId'] = key;
+              tmp['title'] = obj[key]['title'];
+              result.push(tmp);
+            }
+        }));
+        this.setState(()=>({subCategoryItems: result}));
+      });	
   }
-  handleSubmit = (e)=>{
-    e.preventDefault();
-    const {categoryId, subCategoryId, urlName, url} = this.state;
-    const data = {
-      categoryId,
-      subCategoryId,
-      urlName,
-      url
-    }
-    firebase.database().ref('links/' + this.props.linkItem.id).update(data)
-      .then(()=>{
-        console.log('Data has been updated!');
-        //console.log(this.props);
-        this.props.history.push('/linkControlPage'); //Redirect to TestControlPage
-      }).catch((e)=>{
-        console.log('This failed.', e);
-    })    
-  }
-  
 
   render(){
-    console.log('EditForm - render');
-    console.log(this.props.categoryItems);
-    console.log(this.props.subCategoryItems);
-
-    // Generated sub category dropdown with default category ID is JS.
-    const filteredSubCategory = this.props.subCategoryItems.filter(item => item.categoryId === this.state.categoryId);
-
+    console.log('EditLinkPage - render');
+    //console.log(this.state.subCategoryItems);
+    
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup>
-            <ControlLabel>Category:</ControlLabel>
-            <FormControl
-              componentClass="select"
-              name="categoryId"
-              value={this.state.categoryId} 
-              onChange={this.handleCategoryChange}>
-              {
-                this.props.categoryItems.map((item)=>{
-                  return (
-                    <option key={item.id} value={item.id}>{item.name}</option>
-                  )
-                })            
-              }
-            </FormControl>  
-          </FormGroup>
-          <FormGroup>
-            <ControlLabel>Sub Category:</ControlLabel>
-            <FormControl
-              componentClass="select"
-              name="subCategoryId" 
-              value={this.state.subCategoryId} 
-              onChange={this.handleSubCategoryChange}>
-            {
-              filteredSubCategory.map((item)=>{
-                return (
-                  <option key={item.subId} value={item.subId}>{item.title}</option>
-                )
-              })            
-            }
-            </FormControl>            
-          </FormGroup>
-          <FormGroup>
-            <ControlLabel>URL name</ControlLabel>
-            <FormControl
-                type="text"
-                name="urlName"
-                value={this.state.urlName}
-                onChange={this.handleChange} />            
-          </FormGroup>
-          <FormGroup>
-            <ControlLabel>URL</ControlLabel>
-            <FormControl
-                type="text"
-                name="url"
-                value={this.state.url}
-                onChange={this.handleChange} />            
-          </FormGroup>
-          <Button type="submit">Submit</Button>          
-        </form>
+        <Grid>
+          <Row>
+            <Col xs={12}>
+              <h3><img src="/images/dot.png" />Edit Link</h3>
+              <DocumentEditForm 
+                categoryItems={this.state.categoryItems} 
+                subCategoryItems={this.state.subCategoryItems} 
+                linkItem={this.props.location.state.linkItem}
+              />
+            </Col>            
+          </Row>
+        </Grid>
       </div>
-    )
+    );
   }
 }
-export default withRouter(DocumentEditPage);
 
