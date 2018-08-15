@@ -36,6 +36,9 @@ $ git remote -v
 // hiroko3	https://github.com/hirokoymj/hirokoymj1 (push)
 // origin	git@github.com:hirokoymj/hirokoymj1.git (fetch)
 // origin	git@github.com:hirokoymj/hirokoymj1.git (push)
+$ git remote rm hiroko1
+$ git remote rm hiroko2
+$ git remote rm hiroko3
 $ git push heroku master
 ```
 
