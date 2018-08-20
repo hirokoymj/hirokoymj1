@@ -49,10 +49,10 @@ export default class CategoryControlPage extends React.Component{
     /**
      * Check if a user is logged in Firebase. If not, redirect a homepage.
      */
-    // const user = firebase.auth().currentUser;
-    // if(!user){
-    //   this.props.history.push('/');
-    // }
+    const user = firebase.auth().currentUser;
+    if(!user){
+      this.props.history.push('/');
+    }
     /* Render */
     return (
       <div>
@@ -62,7 +62,7 @@ export default class CategoryControlPage extends React.Component{
             <Col sm={3} md={2} className="sidebar">
               <AdminMenu />
             </Col>
-            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="dashboard-main">
               <h1>Category List</h1>
               <CategoryList categoryItems={this.state.categoryItems} onDelete={this.onDelete} />
             </Col>

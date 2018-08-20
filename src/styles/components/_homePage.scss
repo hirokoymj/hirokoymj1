@@ -1,3 +1,11 @@
+//
+// Home Page
+// www.hirokoymj.com/
+// Mobile First Method.
+// Created by HY.
+// Last updated: 2018-08-20 
+// --------------------------------------------------
+
 .fab, .fas, .far{
   font-size: 70px;
   //color: #a2d0ff;
@@ -11,90 +19,19 @@
   }
 }
 
-
-.fa-html5{
+/* Skill icons in slider */
+.fa-npm{
   cursor: pointer;
   color: #a2d0ff;
-  &:hover{
-    color: #ed511f;
-  }
-}
-.fa-css3-alt{
-  cursor: pointer;
-  color: #a2d0ff;
-  &:hover{
-    color: #409ad6;
-  }
 }
 .fa-js{
   cursor: pointer;
   color: #a2d0ff;
-  &:hover{
-    color: #f5de19;
-  }
-}
-.fa-npm{
-  cursor: pointer;
-  color: #a2d0ff;
-  &:hover{
-    color: #cd3738;
-  }
-}
-.fa-angular{
-  cursor: pointer;
-  color: #a2d0ff;
-  &:hover{
-    color: #dd0031;
-  }
-}
-.fa-gulp{
-  cursor: pointer;
-  color: #a2d0ff;
-  &:hover{
-    color: #eb4a4b;
-  }
-}
-.fa-grunt{
-  cursor: pointer;
-  color: #a2d0ff;
-  &:hover{
-    color: #fba919;
-  }
-}
-.fa-sass{
-  cursor: pointer;
-  color: #a2d0ff;
-  &:hover{
-    color: #cf649a;
-  }
-}
-.fa-git-square{
-  cursor: pointer;
-  color: #a2d0ff;
-  &:hover{
-    color: #fff;
-  }
 }
 .fa-react{
   cursor: pointer;
   color: #a2d0ff;
-  &:hover{
-    color: #00d8ff;
-  }
 }
-.fa-database{
-  cursor: pointer;
-  color: #a2d0ff;
-  &:hover{
-    color: #ffcc01;
-  }
-}
-.webpack-icon{
-  width: 57px;
-  padding-top: 9px;
-}
-
-
 .webpack {
   width: 60px;
   .inner-color{
@@ -103,24 +40,98 @@
   .outer-color{
     fill:#a2d0ff;
   }
-  &:hover{
-    .inner-color{
-      fill: #1c78c0;
-    }
-    .outer-color{
-      fill:#8ed6fb;
-    }
-  }
 }
-
+// .webpack-icon{
+//   width: 57px;
+//   padding-top: 9px;
+// }
+.fa-database{
+  cursor: pointer;
+  color: #a2d0ff;
+}
 .bootstrap-icon{
   width: 60px;
+}
+.fa-html5{
+  cursor: pointer;
+  color: #a2d0ff;
+}
+.fa-css3-alt{
+  cursor: pointer;
+  color: #a2d0ff;
+}
+.fa-sass{
+  cursor: pointer;
+  color: #a2d0ff;
+}
+.fa-gulp{
+  cursor: pointer;
+  color: #a2d0ff;
+}
+.fa-grunt{
+  cursor: pointer;
+  color: #a2d0ff;
+}
+.fa-angular{
+  cursor: pointer;
+  color: #a2d0ff;
+}
+.fa-git-square{
+  cursor: pointer;
+  color: #a2d0ff;
+}
+
+/* The skill icons turn on with color when mouse-over */
+.slick-slider{
   &:hover{
-    .bg{
-      fill: #563D7C
+    .fa-html5{
+      color: #ed511f;
     }
-    .text{
-      fill: #fff;
+    .fa-npm{
+      color: #cd3738;
+    }
+    .fa-js{
+      color: #f5de19;
+    }
+    .fa-react{
+      color: #00d8ff;
+    }
+    .webpack {
+      .inner-color{
+        fill: #1c78c0;
+      }
+      .outer-color{
+        fill:#8ed6fb;
+      }
+    }
+    .fa-database{
+      color: #ffcc01;
+    } 
+    .bootstrap-icon{
+      .bg{
+        fill: #563D7C
+      }
+      .text{
+        fill: #fff;
+      }
+    }
+    .fa-css3-alt{
+      color: #409ad6;
+    }                       
+    .fa-angular{
+      color: #dd0031;
+    }
+    .fa-gulp{
+      color: #eb4a4b;
+    }
+    .fa-grunt{
+      color: #fba919;
+    }
+    .fa-sass{
+      color: #cf649a;
+    }
+    .fa-git-square{
+      color: #fff;
     }
   }
 }
@@ -143,7 +154,7 @@ h2{
   color: #ededed;
 }
 
-/* Slick Slider
+/* Customized Slick Slider 
 -------------------------------------------------- */
 .slick-slider{
   //background: green;

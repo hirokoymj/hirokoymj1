@@ -14,7 +14,13 @@ $ npm run heroku-postbuild
 // bundle.js.map  6.53 MB       0  [emitted]         main
 // style.css.map    22 kB       0  [emitted]         main
 ```
-2. Login heroku
+2. Run express server if the site works properly.
+```js
+$ npm start
+```   
+Browse the content in http://127.0.0.1:3000/
+
+3. Login heroku
 
 ```js
 $ heroku login

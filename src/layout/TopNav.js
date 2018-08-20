@@ -54,7 +54,7 @@ class TopNav extends React.Component{
             <li><NavLink to="/document/php" activeClassName="is-active">PHP</NavLink></li>
             <li><NavLink to="/document/html" activeClassName="is-active">HTML/CSS</NavLink></li>
             {
-              //this.state.user &&
+              this.state.user &&
               <li><NavLink to="/admin/categoryControlPage" activeClassName="is-active">Admin Page</NavLink></li>
             }
           </ul>

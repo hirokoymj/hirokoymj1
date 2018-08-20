@@ -6,13 +6,13 @@
 
 
 .page-header{
-	background:$brand-primary;
+	background:#353c44;
 	height: 44px;
 	margin: 0;
 	//margin-bottom:20px;
 	h1{
 	  //font-family: $function-probook;
-		color: $white; 
+		color: $brand-primary; 
 		text-transform:uppercase;
 		font-weight:normal;
 		text-align:center;
@@ -29,7 +29,6 @@
 		height: 88px;
 		//margin-bottom: 10px;
 		h1{
-			color: $white;
 			text-align:left;
 			line-height: 88px;
 			font-size: 24px;

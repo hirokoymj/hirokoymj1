@@ -7,7 +7,7 @@ export default class AdminHeader extends React.Component{
       <Navbar inverse collapseOnSelect fixedTop fluid >
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#brand">hirokoym.com</a>
+            <a href="/">hirokoym.com</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -16,6 +16,12 @@ export default class AdminHeader extends React.Component{
             <NavItem eventKey={1} href="#">
               Login
             </NavItem>
+            <NavItem eventKey={1} href="#" className="hidden-sm hidden-md hidden-lg">
+              test1
+            </NavItem>
+            <NavItem eventKey={1} href="#" className="hidden-sm hidden-md hidden-lg">
+              test2
+            </NavItem>                        
           </Nav>
         </Navbar.Collapse>
       </Navbar>

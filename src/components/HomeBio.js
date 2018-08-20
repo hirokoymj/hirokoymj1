@@ -25,7 +25,8 @@ class HomeBio extends React.Component {
                               <li>React Router</li>
                               <li>Firebase</li>
                               <li>Webpack3.1</li>
-                              <li>npm - form validator</li>
+                              <li>npm - validator.js</li>
+                              <li>Heroku cloud web server</li>
                           </ul>
                         </div>                    
                     </Col>
