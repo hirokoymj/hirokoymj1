@@ -1,8 +1,10 @@
 import React from 'react';
 import firebase from "../../firebase/firebase3";
 import {Grid, Row, Col} from 'react-bootstrap';
+import AdminHeader from './AdminHeader';
+import AdminMenu from './AdminMenu';
 import CategoryForm from './CategoryForm';
-import Menu from './Menu';
+
 
 export default class AddCategoryPage extends React.Component{
   constructor(props){
@@ -17,9 +19,10 @@ export default class AddCategoryPage extends React.Component{
       name: data.categoryName
     }).then(()=>{
       console.log('Success: Data has been submitted!');
-      console.log(this.props); //check if history object exists in props.
-      // Redirect
-      this.props.history.push('/categoryControlPage');
+      /** check if history object exists in props */
+      console.log(this.props);
+      /** Redirect */
+      this.props.history.push('/admin/categoryControlPage');
     }).catch((e)=>{
       console.log('Error: CategoryForm handleSubmit', e);
     });    
@@ -29,18 +32,33 @@ export default class AddCategoryPage extends React.Component{
 			console.log('render');
         return (
           <div>
-            <Menu />
-            <Grid>
-                <Row>
-                    <Col xs={12}>
-                      <h1>category form</h1>
-                      <CategoryForm onSubmit={this.onSubmit} />
-                    </Col>
-                </Row>
+            <AdminHeader />
+            <Grid fluid={true} >
+              <Row>
+                <Col sm={3} md={2} className="sidebar">
+                  <AdminMenu />
+                </Col>
+                <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+                  <h1>Create New Category </h1>
+                  <CategoryForm onSubmit={this.onSubmit} />
+                </Col>
+              </Row>
             </Grid>
-          </div>
+        </div>
         );
     }
 }
 
+
+// <div>
+// <Menu />
+// <Grid>
+//     <Row>
+//         <Col xs={12}>
+//           <h1>category form</h1>
+//           <CategoryForm onSubmit={this.onSubmit} />
+//         </Col>
+//     </Row>
+// </Grid>
+// </div>
 

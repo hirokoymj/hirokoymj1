@@ -52,7 +52,7 @@ class EditLinkForm extends React.Component{
       .then(()=>{
         console.log('Data has been updated!');
         //console.log(this.props);
-        this.props.history.push('/linkControlPage'); //Redirect to TestControlPage
+        this.props.history.push('/admin/linkControlPage'); //Redirect to TestControlPage
       }).catch((e)=>{
         console.log('This failed.', e);
     })    

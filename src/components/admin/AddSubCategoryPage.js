@@ -1,8 +1,10 @@
 import React from 'react';
 import firebase from "../../firebase/firebase3";
 import {Grid, Row, Col} from 'react-bootstrap';
+import AdminHeader from './AdminHeader';
+import AdminMenu from './AdminMenu';
 import SubCatForm from './SubCatForm';
-import Menu from './Menu';
+
 
 export default class AddSubCategoryPage extends React.Component{
   constructor(props){
@@ -40,7 +42,7 @@ export default class AddSubCategoryPage extends React.Component{
     firebase.database().ref(`subcategories/${data.categoryId}`).push(formData)
       .then(()=>{
         console.log('Data is saved!');
-        console.log(this.props.history.push('/subCatControlPage'));
+        console.log(this.props.history.push('/admin/subCatControlPage'));
       }).catch((e)=>{
         console.log('This failed.', e);
       })  
@@ -50,18 +52,33 @@ export default class AddSubCategoryPage extends React.Component{
 			console.log('render');
         return (
           <div>
-            <Menu />
-            <Grid>
-                <Row>
-                    <Col xs={12}>
-                      <h1>Create Subcategory</h1>
-                      <SubCatForm onSubmit={this.onSubmit} categoryItems={this.state.categoryItems} />
-                    </Col>
-                </Row>
+            <AdminHeader />
+            <Grid fluid={true} >
+              <Row>
+                <Col sm={3} md={2} className="sidebar">
+                  <AdminMenu />
+                </Col>
+                <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+                  <h1>Create Subcategory</h1>
+                  <SubCatForm onSubmit={this.onSubmit} categoryItems={this.state.categoryItems} />
+                </Col>
+              </Row>
             </Grid>
           </div>
         );
     }
 }
+
+// <div>
+// <Menu />
+// <Grid>
+//     <Row>
+//         <Col xs={12}>
+//           <h1>Create Subcategory</h1>
+//           <SubCatForm onSubmit={this.onSubmit} categoryItems={this.state.categoryItems} />
+//         </Col>
+//     </Row>
+// </Grid>
+// </div>
 
 

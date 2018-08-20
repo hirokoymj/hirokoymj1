@@ -75,8 +75,8 @@ export default class LinkList extends React.Component{
           <th>Category</th>
           <th>Sub Category</th>
           <th>Link</th>
-          <th>Delete</th>
           <th>Edit</th>
+          <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -87,13 +87,13 @@ export default class LinkList extends React.Component{
                 <td>{item.categoryId}</td>
                 <td>{item.subCategoryTitle}</td>
                 <td><a href={item.url}>{item.urlName}</a></td>
-                <td><button onClick={()=>this.handleDelete(item.id)}>Delete</button></td>
                 <td>
                 <Link to={{
-                  pathname: `/editLink/${item.id}`,
+                  pathname: `/admin/editLink/${item.id}`,
                   state: {linkItem: item}
                 }}>Edit</Link>
                 </td>                
+                <td><button onClick={()=>this.handleDelete(item.id)}>Delete</button></td>
               </tr>
             )
           })

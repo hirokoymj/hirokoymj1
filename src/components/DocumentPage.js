@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from "../firebase/firebase3";
 import {Grid, Row, Col} from 'react-bootstrap';
 import PageHeader from '../layout/PageHeader';
+import TopNav from '../layout/TopNav';
 import DocumentForm from './DocumentForm';
 import DocumentList from './DocumentList';
 
@@ -73,6 +74,7 @@ export default class DocumentPage extends React.Component{
 			console.log('LinkPage - render');
 			return (
         <div>
+          <TopNav />
           <Grid fluid={true} className="page-header">
             <Grid>
                 <Row>

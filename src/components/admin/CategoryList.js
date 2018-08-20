@@ -16,7 +16,6 @@ export default class CategoryList extends React.Component{
 			console.log(this.props.categoryItems);
         return (
             <div>
-              <h1>Category List</h1>
               <Table responsive>
               <thead>
                 <tr>
@@ -35,7 +34,7 @@ export default class CategoryList extends React.Component{
                       <td>{item.name}</td>
                       <td>
                         <Link to={{
-                          pathname: `/editCategory/${item.id}`,
+                          pathname: `/admin/editCategory/${item.id}`,
                           state: {categoryItem: item}
                         }}>Edit</Link>                        
                       </td>

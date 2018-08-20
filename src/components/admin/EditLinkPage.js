@@ -1,8 +1,9 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../../firebase/firebase3";
+import AdminHeader from './AdminHeader';
+import AdminMenu from './AdminMenu';
 import EditLinkForm from './EditLinkForm';
-import Menu from './Menu.js';
 
 
 export default class EditLinkPage extends React.Component{
@@ -55,24 +56,22 @@ export default class EditLinkPage extends React.Component{
   render(){
     console.log('EditLinkPage - render');
     //console.log(this.state.subCategoryItems);
-    
     return (
       <div>
-        <Grid>
+        <AdminHeader />
+        <Grid fluid={true} >
           <Row>
-            <Col xs={12}>
-            <Menu />
+            <Col sm={3} md={2} className="sidebar">
+              <AdminMenu />
             </Col>
-          </Row>           
-          <Row>
-            <Col xs={12} sm={8}>
-            <h1>Edit Link Page</h1>
+            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+              <h1>Edit Link</h1>
               <EditLinkForm 
                 categoryItems={this.state.categoryItems} 
                 subCategoryItems={this.state.subCategoryItems} 
                 linkItem={this.props.location.state.linkItem}
               />
-            </Col>            
+            </Col>
           </Row>
         </Grid>
       </div>
@@ -80,3 +79,25 @@ export default class EditLinkPage extends React.Component{
   }
 }
 
+
+
+
+// <div>
+// <Grid>
+//   <Row>
+//     <Col xs={12}>
+//     <Menu />
+//     </Col>
+//   </Row>           
+//   <Row>
+//     <Col xs={12} sm={8}>
+//     <h1>Edit Link Page</h1>
+//       <EditLinkForm 
+//         categoryItems={this.state.categoryItems} 
+//         subCategoryItems={this.state.subCategoryItems} 
+//         linkItem={this.props.location.state.linkItem}
+//       />
+//     </Col>            
+//   </Row>
+// </Grid>
+// </div>

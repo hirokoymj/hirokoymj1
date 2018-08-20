@@ -32,7 +32,7 @@ export default class SubCatList extends React.Component{
                 <td>{item.title}</td>
                 <td>
                   <Link to={{
-                    pathname: `/editSubCat/${item.subId}`,
+                    pathname: `/admin/editSubCat/${item.subId}`,
                     state: {subCategoryItem: item}
                   }}>Edit</Link>
                 </td>

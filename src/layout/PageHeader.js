@@ -7,17 +7,3 @@ const PageHeader = (props) => (
 export default PageHeader;
 
 
-
-// <Grid fluid={true} className="page-header">
-// <Grid>
-//     <Row>
-//         <Col xs={12}>
-//         <h1>
-//         {
-//             props.category == null ? <span>{props.title}</span> : <span>{props.category}</span>
-//         }
-//         </h1>
-//         </Col>
-//     </Row>
-// </Grid>
-// </Grid>

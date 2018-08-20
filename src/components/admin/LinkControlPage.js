@@ -1,9 +1,9 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../../firebase/firebase3";
-// import Test from './Test';
+import AdminHeader from './AdminHeader';
+import AdminMenu from './AdminMenu';
 import LinkList from './LinkList';
-import Menu from './Menu';
 
 
 export default class LinkControlPage extends React.Component{
@@ -39,19 +39,36 @@ export default class LinkControlPage extends React.Component{
 
   render(){
     console.log('LinkControlPage - render');
-    
     return (
       <div>
-          <Menu />
-          <Grid>
+        <AdminHeader />
+        <Grid fluid={true} >
           <Row>
-              <Col xs={12} >
-              <h1>Document Links</h1>
-              <LinkList subCategoryItems={this.state.subCategoryItems} />
-              </Col>
+            <Col sm={3} md={2} className="sidebar">
+              <AdminMenu />
+            </Col>
+            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+              <h1>Link List</h1>
+                <LinkList subCategoryItems={this.state.subCategoryItems} />
+            </Col>
           </Row>
         </Grid>
       </div>
     );
   }
 }
+
+
+
+
+// <div>
+// <AdminMenu />
+// <Grid>
+// <Row>
+//     <Col xs={12} >
+//     <h1>Document Links</h1>
+//     <LinkList subCategoryItems={this.state.subCategoryItems} />
+//     </Col>
+// </Row>
+// </Grid>
+// </div>

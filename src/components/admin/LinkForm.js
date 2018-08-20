@@ -79,7 +79,7 @@ class LinkForm extends React.Component{
       urlName: '',
       url: ''
     });  
-    this.props.history.push("/linkControlPage");
+    this.props.history.push("/admin/linkControlPage");
   }
   
 

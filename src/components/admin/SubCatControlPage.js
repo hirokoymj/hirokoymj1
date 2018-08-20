@@ -1,8 +1,9 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../../firebase/firebase3";
+import AdminHeader from './AdminHeader';
+import AdminMenu from './AdminMenu';
 import SubCatList from "./SubCatList";
-import Menu from './Menu';
 
 
 export default class SubCatControlPage extends React.Component{
@@ -56,16 +57,21 @@ export default class SubCatControlPage extends React.Component{
     console.log('SubCatControlPage - render');
     return (
       <div>
-          <Menu />
-          <Grid>
+        <AdminHeader />
+        <Grid fluid={true} >
           <Row>
-              <Col xs={12} sm={8}>
-              <h1>Subcategory List Page</h1>
+            <Col sm={3} md={2} className="sidebar">
+              <AdminMenu />
+            </Col>
+            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+              <h1>Subcategory List</h1>
               <SubCatList subCategoryItems={this.state.subCategoryItems} onDelete={this.onDelete}/>
-              </Col>
+            </Col>
           </Row>
         </Grid>
       </div>
     );
   }
 }
+
+

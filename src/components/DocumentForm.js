@@ -43,8 +43,10 @@ export default class DocumentForm extends React.Component{
         e.preventDefault();
         console.log('handleSubmit');
 
-        if(validator.isEmpty(this.state.urlName) || validator.isEmpty(this.state.url)){
-          this.setState(()=>({error: "please fill in required fields."}));
+        if(validator.isEmpty(this.state.urlName)){
+          this.setState(()=>({
+            error: "error"
+          }));
         }else{
           const {categoryId, subCategoryId, urlName, url} = this.state;
           const data = {
@@ -63,19 +65,26 @@ export default class DocumentForm extends React.Component{
           });
         }
     }
+    getValidationState() {
+      const length = this.state.urlName.length;
+      if (length > 10) return 'success';
+      else if (length > 5) return 'warning';
+      else if (length > 0) return 'error';
+      return null;
+    }  
     render(){
         console.log('LinkForm - render');
         console.log(this.props.subCategoryItems);
 
         return (
           <div>
-              {this.state.error && <p>{this.state.error}</p>}
+            {this.state.error && <p>{this.state.error}</p>}
+            <form onSubmit={this.handleSubmit}>
               <FormGroup>
-                  <ControlLabel>Category</ControlLabel>
-                  <div>{this.props.categoryId}</div>
+                <ControlLabel>Category</ControlLabel>
+                <FormControl.Static>{this.props.categoryId}</FormControl.Static>
               </FormGroup>
-              <form onSubmit={this.handleSubmit}>
-              <FormGroup>
+              <FormGroup >
                 <ControlLabel>Subcategory</ControlLabel>
                 <FormControl
                     componentClass="select"
@@ -91,7 +100,7 @@ export default class DocumentForm extends React.Component{
                     }
                 </FormControl>
               </FormGroup>
-              <FormGroup>
+              <FormGroup controlId="urlName" validationState={this.state.error}>
                 <ControlLabel>URL Name</ControlLabel>
                 <FormControl type="text" name="urlName" onChange={this.handleChange} value={this.state.urlName}/>
               </FormGroup>
@@ -100,7 +109,7 @@ export default class DocumentForm extends React.Component{
                 <FormControl type="text" name="url" onChange={this.handleChange} value={this.state.url}/>
               </FormGroup>
               <Button type="submit">Save</Button>
-              </form>            
+            </form>            
           </div>
         );
     }

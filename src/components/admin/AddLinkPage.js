@@ -1,8 +1,9 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../../firebase/firebase3";
+import AdminHeader from './AdminHeader';
+import AdminMenu from './AdminMenu';
 import LinkForm from './LinkForm';
-import Menu from './Menu';
 
 
 export default class AddLinkPage extends React.Component{
@@ -64,26 +65,48 @@ export default class AddLinkPage extends React.Component{
     
     return (
       <div>
-        <Grid>
+        <AdminHeader />
+        <Grid fluid={true} >
           <Row>
-            <Col xs={12}>
-            <Menu />
+            <Col sm={3} md={2} className="sidebar">
+              <AdminMenu />
             </Col>
-          </Row>          
-          <Row>
-            <Col xs={12} sm={8}>
-              <h1>Create Link Page</h1>
+            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+              <h1>Create new link</h1>
               <LinkForm 
                 categoryItems={this.state.categoryItems} 
                 categoryDefaultValue="js" 
                 subCategoryItems={this.state.subCategoryItems} 
                 subCategoryDefaultValue={subCategoryId} 
-              />
-            </Col>            
+              />              
+            </Col>
           </Row>
         </Grid>
       </div>
     );
   }
 }
+
+
+
+// <div>
+// <Grid>
+//   <Row>
+//     <Col xs={12}>
+//     <Menu />
+//     </Col>
+//   </Row>          
+//   <Row>
+//     <Col xs={12} sm={8}>
+//       <h1>Create Link Page</h1>
+//       <LinkForm 
+//         categoryItems={this.state.categoryItems} 
+//         categoryDefaultValue="js" 
+//         subCategoryItems={this.state.subCategoryItems} 
+//         subCategoryDefaultValue={subCategoryId} 
+//       />
+//     </Col>            
+//   </Row>
+// </Grid>
+// </div>
 

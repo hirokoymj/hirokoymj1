@@ -1,8 +1,10 @@
 import React from 'react';
+//import {Grid, Row, Col, Nav, NavItem, Navbar, NavbarHeader, NavDropdown, MenuItem} from 'react-bootstrap';
 import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../../firebase/firebase3";
+import AdminHeader from './AdminHeader';
+import AdminMenu from './AdminMenu';
 import CategoryList from "./CategoryList";
-import Menu from './Menu';
 
 
 export default class CategoryControlPage extends React.Component{
@@ -44,18 +46,56 @@ export default class CategoryControlPage extends React.Component{
 
   render(){
     console.log('CategoryControlPage - render');
-    
+    /**
+     * Check if a user is logged in Firebase. If not, redirect a homepage.
+     */
+    // const user = firebase.auth().currentUser;
+    // if(!user){
+    //   this.props.history.push('/');
+    // }
+    /* Render */
     return (
       <div>
-          <Menu />
-          <Grid>
+        <AdminHeader />
+        <Grid fluid={true} >
           <Row>
-              <Col xs={12} sm={8}>
+            <Col sm={3} md={2} className="sidebar">
+              <AdminMenu />
+            </Col>
+            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+              <h1>Category List</h1>
               <CategoryList categoryItems={this.state.categoryItems} onDelete={this.onDelete} />
-              </Col>
+            </Col>
           </Row>
         </Grid>
       </div>
     );
   }
 }
+
+// <Navbar inverse collapseOnSelect className="navbar-fixed-top">
+// <Navbar.Header>
+//   <Navbar.Brand>
+//     <a href="#brand">hirokoym.com</a>
+//   </Navbar.Brand>
+//   <Navbar.Toggle />
+// </Navbar.Header>
+// <Navbar.Collapse>
+//   <Nav pullRight>
+//     <NavItem eventKey={1} href="#">
+//       Login
+//     </NavItem>
+//   </Nav>
+// </Navbar.Collapse>
+// </Navbar>
+
+
+
+// <ul className="nav nav-sidebar">
+// <li className="active"><a href="/admin/categoryControlPage">Category List <span className="sr-only">(current)</span></a></li>
+// <li><a href="/admin/subCatControlPage">Subcategory List</a></li>
+// <li><a href="/admin/linkControlPage">Link List</a></li>
+// <li><a href="/admin/addCategoryPage">Create Category</a></li>
+// <li><a href="/admin/addSubCategoryPage">Create Subcategory</a></li>
+// <li><a href="/admin/addLinkPage">Create Link</a></li>
+// </ul>
