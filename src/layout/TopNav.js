@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import {Grid, Row, Col, Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import {Grid, Row, Col, Navbar, Nav, NavItem, NavDropdown, MenuItem, Button} from 'react-bootstrap';
 import firebase, {auth, provider} from '../firebase/firebase3';
 import { withRouter } from 'react-router-dom'
 
@@ -59,15 +59,23 @@ class TopNav extends React.Component{
             }
           </ul>
         </nav>
+        
+        <nav className="pull-right">
+          <ul className="menu">
+            <li>
+              {this.state.user ?
+                <div>
+                  <Button onClick={this.logout} className="logout">Log Out </Button>  
+                  <div className="loginUser">{this.state.user? this.state.user.displayName : ''}</div>              
+                </div>
+                :
+                <Button onClick={this.login} className="login">Log In</Button>
+              }
+            </li>
+          </ul>
+        </nav>
 
-        {this.state.user ?
-          <div>
-            <button onClick={this.logout}>Log Out </button>  
-            <span>{this.state.user? this.state.user.displayName : ''}</span>              
-          </div>
-          :
-          <button onClick={this.login}>Log In</button>
-        } 
+
         </Grid>
       </header>
     );

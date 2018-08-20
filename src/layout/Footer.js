@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Row, Col}from 'react-bootstrap';
+import {Grid, Row, Col} from 'react-bootstrap';
 
 export default class Footer extends React.Component{
   render(){
@@ -29,5 +29,4 @@ export default class Footer extends React.Component{
       </div>  
     )
   }
-
 } 

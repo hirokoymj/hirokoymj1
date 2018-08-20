@@ -1,6 +1,6 @@
 import React from 'react';
 import validator from 'validator';
-import {FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
+import {FormGroup, FormControl, ControlLabel, Button, Panel} from 'react-bootstrap';
 
 export default class DocumentForm extends React.Component{
     constructor(props){
@@ -79,37 +79,44 @@ export default class DocumentForm extends React.Component{
         return (
           <div>
             {this.state.error && <p>{this.state.error}</p>}
-            <form onSubmit={this.handleSubmit}>
-              <FormGroup>
-                <ControlLabel>Category</ControlLabel>
-                <FormControl.Static>{this.props.categoryId}</FormControl.Static>
-              </FormGroup>
-              <FormGroup >
-                <ControlLabel>Subcategory</ControlLabel>
-                <FormControl
-                    componentClass="select"
-                    value={this.state.subCategoryId}
-                    name="subCategoryId"
-                    onChange={this.handleSelectChange}>
-                    {
-                        this.props.subCategoryItems.map((item)=>{
-                            return(
-                                <option key={item.subId} value={item.subId}>{item.title}</option>
-                            )
-                        })
-                    }
-                </FormControl>
-              </FormGroup>
-              <FormGroup controlId="urlName" validationState={this.state.error}>
-                <ControlLabel>URL Name</ControlLabel>
-                <FormControl type="text" name="urlName" onChange={this.handleChange} value={this.state.urlName}/>
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel>URL</ControlLabel>
-                <FormControl type="text" name="url" onChange={this.handleChange} value={this.state.url}/>
-              </FormGroup>
-              <Button type="submit">Save</Button>
-            </form>            
+            <Panel>
+              <Panel.Heading>
+                <Panel.Title componentClass="h3">Create New Link</Panel.Title>
+              </Panel.Heading>
+              <Panel.Body>
+                <form onSubmit={this.handleSubmit}>
+                <FormGroup>
+                  <ControlLabel>Category</ControlLabel>
+                  <FormControl.Static>{this.props.categoryId}</FormControl.Static>
+                </FormGroup>
+                <FormGroup >
+                  <ControlLabel>Subcategory</ControlLabel>
+                  <FormControl
+                      componentClass="select"
+                      value={this.state.subCategoryId}
+                      name="subCategoryId"
+                      onChange={this.handleSelectChange}>
+                      {
+                          this.props.subCategoryItems.map((item)=>{
+                              return(
+                                  <option key={item.subId} value={item.subId}>{item.title}</option>
+                              )
+                          })
+                      }
+                  </FormControl>
+                </FormGroup>
+                <FormGroup controlId="urlName" validationState={this.state.error}>
+                  <ControlLabel>URL Name</ControlLabel>
+                  <FormControl type="text" name="urlName" onChange={this.handleChange} value={this.state.urlName}/>
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>URL</ControlLabel>
+                  <FormControl type="text" name="url" onChange={this.handleChange} value={this.state.url}/>
+                </FormGroup>
+                <Button type="submit">Save</Button>
+              </form>  
+              </Panel.Body>
+            </Panel>            
           </div>
         );
     }

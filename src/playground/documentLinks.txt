@@ -135,3 +135,22 @@ http://sass-lang.com/
 Compass
 http://compass-style.org/
 
+
+Algorithm - Array
+https://github.com/hirokoymj/Algorithm-Array
+
+
+Algorithm - Object
+https://github.com/hirokoymj/Algorithm-Object
+
+
+Algorithm - String and Data
+https://github.com/hirokoymj/Algorithm_Date
+
+
+Algorithm - Math
+https://github.com/hirokoymj/Algorithm-Math
+
+
+application/json vs application/x-www-form-urlencoded
+https://github.com/hirokoymj/Angular-Login/blob/master/Content-type.md

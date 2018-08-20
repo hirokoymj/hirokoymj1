@@ -83,6 +83,27 @@ nav{
           }
       }
   } // end of .menu
+  /* Login & Logout */
+  .login, .logout{
+    color: #333;
+    background-color: #353c44;
+    border-color: #353c44;    
+    margin-top: 10px;
+    color: #fff;
+    &:hover{
+      background: $brand-primary;
+      border-color: $brand-primary;  
+      color: #353c44;
+    }
+  }
+  .logout{
+    float: left;
+  }
+  .loginUser{
+    float: left;
+    padding-top: 17px;
+    padding-left: 10px;    
+  }
 } // end of nav
 
 

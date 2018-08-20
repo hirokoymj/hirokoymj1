@@ -41,6 +41,7 @@ export default class AppRouter extends React.Component{
           <Route path="/admin/editLink" component={EditLinkPage} />
           <Route component={NotFoundPage} />
         </Switch>
+        <Footer />
       </div>
 			</BrowserRouter>
 		)
