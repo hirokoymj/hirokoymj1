@@ -7,7 +7,7 @@ export default class AdminHeader extends React.Component{
       <Navbar inverse collapseOnSelect fixedTop fluid >
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">hirokoym.com</a>
+            <a href="/"><img src="/images/logo-white.png" alt="hirokoymj.com" width="150" /></a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

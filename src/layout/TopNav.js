@@ -69,7 +69,7 @@ class TopNav extends React.Component{
                   <div className="loginUser">{this.state.user? this.state.user.displayName : ''}</div>              
                 </div>
                 :
-                <Button onClick={this.login} className="login">Log In</Button>
+                <Button onClick={this.login} className="login">Log In with Google</Button>
               }
             </li>
           </ul>
