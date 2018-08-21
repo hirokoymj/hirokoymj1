@@ -55,7 +55,7 @@ export default class CategoryControlPage extends React.Component{
     }
     /* Render */
     return (
-      <div>
+      <div id="AdminPage">
         <AdminHeader />
         <Grid fluid={true} >
           <Row>
