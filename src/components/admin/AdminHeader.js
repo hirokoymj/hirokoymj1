@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar, Nav, NavbarHeader, NavItem} from 'react-bootstrap';
+import Logout from '../../components/Logout';
 
 export default class AdminHeader extends React.Component{
   render(){
@@ -13,8 +14,8 @@ export default class AdminHeader extends React.Component{
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">
-              Login
+            <NavItem eventKey={1}>
+              <Logout />
             </NavItem>
             <NavItem eventKey={1} href="#" className="hidden-sm hidden-md hidden-lg">
               test1

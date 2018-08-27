@@ -1,5 +1,7 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch } from 'react-router-dom';
+//import {BrowserRouter, Route, Switch } from 'react-router-dom';
+import {Router, Route, Switch } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import HomePage from '../components/HomePage';
 import NotFoundPage from '../components/NotFoundPage';
 // import TopNav from '../layout/TopNav';
@@ -19,34 +21,35 @@ import EditCategoryPage from '../components/admin/EditCategoryPage';
 import AddSubCategoryPage from '../components/admin/AddSubCategoryPage';
 import SubCatControlPage from '../components/admin/SubCatControlPage';
 import EditSubCatPage from '../components/admin/EditSubCatPage';
+import PrivateRoute from './PrivateRoute';
 
 
-export default class AppRouter extends React.Component{
-  render(){
-		return (
-			<BrowserRouter>
-			<div>
-				<Switch>
+export const history = createHistory();
+
+const AppRouter = () =>(
+    <Router history={history}>
+      <div>
+        <Switch>
           <Route path="/" component={HomePage} exact={true} />
           <Route path="/document/:id" component={DocumentPage} />
           <Route path="/editDoc" component={DocumentEditPage} />
-          <Route path="/admin/categoryControlPage" component={CategoryControlPage} />
-          <Route path="/admin/addCategoryPage" component={AddCategoryPage} />
-          <Route path="/admin/editCategory/:id" component={EditCategoryPage} />
-          <Route path="/admin/subCatControlPage" component={SubCatControlPage} />
-          <Route path="/admin/addSubCategoryPage" component={AddSubCategoryPage} />
-          <Route path="/admin/editSubCat/:id" component={EditSubCatPage} />
-          <Route path="/admin/linkControlPage" component={LinkControlPage} />
-          <Route path="/admin/addLinkPage" component={AddLinkPage} />
-          <Route path="/admin/editLink" component={EditLinkPage} />
+          <PrivateRoute path="/admin/categoryControlPage" component={CategoryControlPage} />
+          <PrivateRoute path="/admin/addCategoryPage" component={AddCategoryPage} />
+          <PrivateRoute path="/admin/editCategory/:id" component={EditCategoryPage} />
+          <PrivateRoute path="/admin/subCatControlPage" component={SubCatControlPage} />
+          <PrivateRoute path="/admin/addSubCategoryPage" component={AddSubCategoryPage} />
+          <PrivateRoute path="/admin/editSubCat/:id" component={EditSubCatPage} />
+          <PrivateRoute path="/admin/linkControlPage" component={LinkControlPage} />
+          <PrivateRoute path="/admin/addLinkPage" component={AddLinkPage} />
+          <PrivateRoute path="/admin/editLink" component={EditLinkPage} />
           <Route component={NotFoundPage} />
         </Switch>
         <Footer />
       </div>
-			</BrowserRouter>
-		)
-	}
-}
+    </Router>
+);
+
+export default AppRouter;
 
 // <TopNav />
 // <Footer />

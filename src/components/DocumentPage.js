@@ -13,12 +13,13 @@ export default class DocumentPage extends React.Component{
         this.state = {
             categoryId: this.props.match.params.id, //set param as categoryID
 						subCategoryItems: [],
-						linkItems: [],
-				}
+            linkItems: [],
+            user: null
+        }
     }
     componentDidMount(){
 			this.getSubCategoryData(this.props.match.params.id);
-			this.getLinkData(this.props.match.params.id);
+      this.getLinkData(this.props.match.params.id);
 		}
 
     componentDidUpdate(prevProps) {

@@ -1,46 +1,36 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {Grid, Row, Col, Navbar, Nav, NavItem, NavDropdown, MenuItem, Button} from 'react-bootstrap';
-import firebase, {auth, provider} from '../firebase/firebase3';
-import { withRouter } from 'react-router-dom'
+import firebase, {googleAuthProvider} from '../firebase/firebase3';
+//import { history } from '../routers/AppRouter';
+import { connect } from 'react-redux';
+import Login from '../components/Login';
+import Logout from '../components/Logout';
 
+/**
+ * TopNav for hirokoymj.com. 
+ */
 class TopNav extends React.Component{
   constructor(props){
     super(props);
     this.state={
       isShow: false,
-      user: null
     }
     this.handleToggle = this.handleToggle.bind(this);
   }
+
+  // componentDidUpdate(prevProps) {
+  //   console.log('TopNav - componentDidUpdate');
+  //   console.log(prevProps);
+  // }
+
   handleToggle(){
     this.setState((prevState)=>({
       isShow : !prevState.isShow
     }));
   }
-  logout = ()=>{
-    console.log('logout');
-    auth.signOut()
-    .then(() => {
-      this.setState({
-        user: null
-      });
-      //console.log(this.props.history);
-      this.props.history.push('/');
-    });    
-  }
-  login = ()=>{
-    auth.signInWithPopup(provider) 
-      .then((result) => {
-        const user = result.user;
-        this.setState({
-          user,
-          username: user.displayName
-        });
-      });
-  }  
+  
   render(){
-    //console.log(this.state.isShow);
     return (
       <header className="site-header">
         <Grid>			
@@ -53,35 +43,40 @@ class TopNav extends React.Component{
             <li><NavLink to="/document/es6" activeClassName="is-active">ES6</NavLink></li>
             <li><NavLink to="/document/php" activeClassName="is-active">PHP</NavLink></li>
             <li><NavLink to="/document/html" activeClassName="is-active">HTML/CSS</NavLink></li>
-            {
-              this.state.user &&
+            { 
+              this.props.uid &&
               <li><NavLink to="/admin/categoryControlPage" activeClassName="is-active">Admin Page</NavLink></li>
             }
           </ul>
         </nav>
-        
         <nav className="pull-right">
           <ul className="menu">
             <li>
-              {this.state.user ?
-                <div>
-                  <Button onClick={this.logout} className="logout">Log Out </Button>  
-                  <div className="loginUser">{this.state.user? this.state.user.displayName : ''}</div>              
-                </div>
-                :
-                <Button onClick={this.login} className="login">Log In with Google</Button>
-              }
+            { this.props.uid ?
+              <div>
+                <Logout /> 
+                <span className="login_user">{this.props.displayName}</span>            
+              </div>
+              :
+              <Login />
+            }
             </li>
           </ul>
         </nav>
-
-
         </Grid>
       </header>
     );
   }
 }
-export default withRouter(TopNav);
 
-// <li><NavLink to="/" activeClassName="is-active" exact={true}>Home</NavLink></li>
+/**
+ * Connect TopNav component to Redux
+ */
+const mapStateToProps = (state)=>{
+  return {
+    uid: state.uid,
+    displayName: state.displayName
+  }
+}
+export default connect(mapStateToProps)(TopNav);
 

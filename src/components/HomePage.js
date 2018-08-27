@@ -3,8 +3,7 @@ import HomeSlider from '../components/HomeSlider';
 import HomeBio from '../components/HomeBio';
 import TopNav from '../layout/TopNav';
 
-
-const HomePage = () => (
+const HomePage = (props) => (
     <div>
         <TopNav />
         <HomeSlider />
