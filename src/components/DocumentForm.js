@@ -132,7 +132,7 @@ export default class DocumentForm extends React.Component{
                   <ControlLabel>URL:</ControlLabel>
                   <FormControl type="text" name="url" onChange={this.handleChange} value={this.state.url}/>
                 </FormGroup>
-                <Button type="submit">Save</Button>
+                <Button type="submit" bsStyle="info">Save</Button>
               </form>  
               </Panel.Body>
             </Panel>            
