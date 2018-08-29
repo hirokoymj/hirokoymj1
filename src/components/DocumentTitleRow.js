@@ -5,7 +5,7 @@ export default class DocumentTitleRow extends React.Component {
     return (
       <tr>
         <td colSpan="3" className="title-row">
-            <h3><img src="/images/dot.png" />{this.props.title}</h3>
+            <h3><img src="/images/dot.png" alt="" />{this.props.title}</h3>
         </td>
       </tr>
     );

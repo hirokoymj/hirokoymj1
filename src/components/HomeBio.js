@@ -7,16 +7,16 @@ class HomeBio extends React.Component {
         return (
             <Grid>
                 <Row>
-                    <Col xs={12} sm={6}>
+                    <Col xs={12} sm={6} className="homeBio_About">
                     <div className="section-title">
-                      <h3>About Me</h3>
-                      <p>I am Front-End web developer in Los Angeles over ten years. My strong languages is JavaScript and spend many time to build React.js web sites and web applications.</p>
-                      <p> I will learn new technologies by myself and also attend local Meetups regulary. My hobby is to read a book and play a golf.</p>
+                      <h3><img src="/images/dot.png" alt="About Me" /> About Me</h3>
+                      <p>I am Front-End web developer in Los Angeles over ten years. My strong languages is <b><i>JavaScript and React.js</i></b>.
+                      I will learn new technologies by myself and also attend local Meetups. My hobby is to read a book and play a golf.</p>
                      </div>
                     </Col>
-                    <Col xs={12} sm={6}>
+                    <Col xs={12} sm={6} className="homeBio_Tech">
                         <div className="section-title">
-                        <h3>Technology</h3>
+                        <h3><img src="/images/dot.png" alt="Technology" /> Technology</h3>
                           <p>This website is a single page web application by <code>React.js</code> and <code>React Router</code>. Here are the main technologies that I used for developing the site.</p>
                           <ul>
                               <li>React.js</li>
