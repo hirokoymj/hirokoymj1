@@ -211,9 +211,15 @@ h2{
         line-height: 24px;
     }
   }
-  .homeBio_About, .homeBio_Tech{
+  .homeBio{
+    padding-bottom: 25px;
     p{
       padding: 0 15px 10px 15px;
+    }
+    ul{
+      li{
+        padding-bottom: 7px;
+      }
     }
   }
 }

@@ -6,27 +6,28 @@ class HomeBio extends React.Component {
         console.log('HomeBio-render()');
         return (
             <Grid>
-                <Row>
-                    <Col xs={12} sm={6} className="homeBio_About">
+                <Row className="homeBio">
+                    <Col xs={12} sm={6}>
                     <div className="section-title">
                       <h3><img src="/images/dot.png" alt="About Me" /> About Me</h3>
-                      <p>I am Front-End web developer in Los Angeles over ten years. My strong languages is <b><i>JavaScript and React.js</i></b>.
-                      I will learn new technologies by myself and also attend local Meetups. My hobby is to read a book and play a golf.</p>
+                      <p>I am Front-End web developer in Los Angeles over ten years. My strong languages are <b>JavaScript and React.js</b> and I will learn and update new technologies using <a href="http://www.udemy.com">Udemy.com</a> and local meetup groups. My hobby is to read a book and play golf.</p>
                      </div>
                     </Col>
-                    <Col xs={12} sm={6} className="homeBio_Tech">
+                    <Col xs={12} sm={6}>
                         <div className="section-title">
                         <h3><img src="/images/dot.png" alt="Technology" /> Technology</h3>
-                          <p>This website is a single page web application by <code>React.js</code> and <code>React Router</code>. Here are the main technologies that I used for developing the site.</p>
+                          <p>I developed this website using <code>React.js</code> and <code>React router</code> to build a single page web application. Here are core technologies:</p>
                           <ul>
                               <li>React.js</li>
-                              <li>React-Slick</li>
-                              <li>React-Bootstrap</li>
                               <li>React Router</li>
-                              <li>Firebase</li>
-                              <li>Webpack3.1</li>
-                              <li>npm - validator.js</li>
-                              <li>Heroku cloud web server</li>
+                              <li>Redux</li>
+                              <li>React-Slick</li>
+                              <li>React-bootstrap</li>
+                              <li>Firebase Database</li>
+                              <li>Firebase Authentication</li>
+                              <li>Webpack</li>
+                              <li>npm</li>
+                              <li>Heroku web server</li>
                           </ul>
                         </div>                    
                     </Col>
