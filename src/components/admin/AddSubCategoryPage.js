@@ -49,36 +49,23 @@ export default class AddSubCategoryPage extends React.Component{
   }
 
   render(){
-			console.log('render');
-        return (
-          <div>
-            <AdminHeader />
-            <Grid fluid={true} >
-              <Row>
-                <Col sm={3} md={2} className="sidebar">
-                  <AdminMenu />
-                </Col>
-                <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
-                  <h1>Create Subcategory</h1>
-                  <SubCatForm onSubmit={this.onSubmit} categoryItems={this.state.categoryItems} />
-                </Col>
-              </Row>
-            </Grid>
-          </div>
-        );
+    return (
+      <div id="AdminPage">
+        <AdminHeader />
+        <Grid fluid={true} >
+          <Row>
+            <Col sm={3} md={2} className="sidebar">
+              <AdminMenu />
+            </Col>
+            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
+              <h1>Create Subcategory</h1>
+              <SubCatForm onSubmit={this.onSubmit} categoryItems={this.state.categoryItems} />
+            </Col>
+          </Row>
+        </Grid>
+      </div>
+    );
     }
 }
-
-// <div>
-// <Menu />
-// <Grid>
-//     <Row>
-//         <Col xs={12}>
-//           <h1>Create Subcategory</h1>
-//           <SubCatForm onSubmit={this.onSubmit} categoryItems={this.state.categoryItems} />
-//         </Col>
-//     </Row>
-// </Grid>
-// </div>
 
 

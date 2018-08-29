@@ -70,7 +70,7 @@ class DocumentEditForm extends React.Component{
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="documentEditForm">
           <FormGroup>
             <ControlLabel>Category:</ControlLabel>
             <FormControl
@@ -119,7 +119,7 @@ class DocumentEditForm extends React.Component{
                 value={this.state.url}
                 onChange={this.handleChange} />            
           </FormGroup>
-          <Button type="submit">Submit</Button>          
+          <Button type="submit" className="btn btn-success editBtn">Edit</Button>          
         </form>
       </div>
     )

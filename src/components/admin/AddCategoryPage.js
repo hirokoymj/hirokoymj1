@@ -29,9 +29,8 @@ export default class AddCategoryPage extends React.Component{
   }
 
   render(){
-			console.log('render');
         return (
-          <div>
+          <div id="AdminPage">
             <AdminHeader />
             <Grid fluid={true} >
               <Row>
@@ -48,17 +47,4 @@ export default class AddCategoryPage extends React.Component{
         );
     }
 }
-
-
-// <div>
-// <Menu />
-// <Grid>
-//     <Row>
-//         <Col xs={12}>
-//           <h1>category form</h1>
-//           <CategoryForm onSubmit={this.onSubmit} />
-//         </Col>
-//     </Row>
-// </Grid>
-// </div>
 

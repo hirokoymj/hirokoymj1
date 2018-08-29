@@ -80,7 +80,7 @@ export default class SubCatForm extends React.Component{
                   value={this.state.title}
                 />
               </FormGroup>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" className="submitBtn">Submit</Button>
             </form>	
           </div>
         );

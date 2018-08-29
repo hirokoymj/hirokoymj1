@@ -76,15 +76,7 @@ export default class DocumentPage extends React.Component{
 			return (
         <div>
           <TopNav />
-          <Grid fluid={true} className="page-header">
-            <Grid>
-                <Row>
-                    <Col xs={12}>
-                      <PageHeader pageTitle={this.props.match.params.id==='js' ? 'JavaScript' : this.props.match.params.id}/>
-                    </Col>
-                </Row>
-            </Grid>
-          </Grid>
+          <PageHeader pageTitle={this.props.match.params.id==='js' ? 'JavaScript' : this.props.match.params.id} />
           <Grid className="documentPage">
             <Row>
               <Col xs={12} sm={4} className="documentForm">
@@ -102,3 +94,12 @@ export default class DocumentPage extends React.Component{
 
 
 
+// <Grid fluid={true} className="page-header">
+// <Grid>
+//     <Row>
+//         <Col xs={12}>
+//           <PageHeader pageTitle={this.props.match.params.id==='js' ? 'JavaScript' : this.props.match.params.id}/>
+//         </Col>
+//     </Row>
+// </Grid>
+// </Grid>

@@ -2,6 +2,8 @@ import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import firebase from "../firebase/firebase3";
 import DocumentEditForm from './DocumentEditForm';
+import TopNav from '../layout/TopNav';
+import PageHeader from '../layout/PageHeader';
 
 
 export default class DocumentEditPage extends React.Component{
@@ -53,14 +55,13 @@ export default class DocumentEditPage extends React.Component{
 
   render(){
     console.log('EditLinkPage - render');
-    //console.log(this.state.subCategoryItems);
-    
     return (
       <div>
-        <Grid>
+        <TopNav />
+        <PageHeader pageTitle="Edit Link" />
+        <Grid className="documentEditPage">
           <Row>
-            <Col xs={12}>
-              <h3><img src="/images/dot.png" />Edit Link</h3>
+            <Col xs={12} sm={8}>
               <DocumentEditForm 
                 categoryItems={this.state.categoryItems} 
                 subCategoryItems={this.state.subCategoryItems} 

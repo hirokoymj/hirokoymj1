@@ -62,7 +62,7 @@ export default class CategoryControlPage extends React.Component{
             <Col sm={3} md={2} className="sidebar">
               <AdminMenu />
             </Col>
-            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="dashboard-main">
+            <Col sm={9} smOffset={3} md={10} mdOffset={2} className="main">
               <h1>Category List</h1>
               <CategoryList categoryItems={this.state.categoryItems} onDelete={this.onDelete} />
             </Col>
@@ -73,29 +73,3 @@ export default class CategoryControlPage extends React.Component{
   }
 }
 
-// <Navbar inverse collapseOnSelect className="navbar-fixed-top">
-// <Navbar.Header>
-//   <Navbar.Brand>
-//     <a href="#brand">hirokoym.com</a>
-//   </Navbar.Brand>
-//   <Navbar.Toggle />
-// </Navbar.Header>
-// <Navbar.Collapse>
-//   <Nav pullRight>
-//     <NavItem eventKey={1} href="#">
-//       Login
-//     </NavItem>
-//   </Nav>
-// </Navbar.Collapse>
-// </Navbar>
-
-
-
-// <ul className="nav nav-sidebar">
-// <li className="active"><a href="/admin/categoryControlPage">Category List <span className="sr-only">(current)</span></a></li>
-// <li><a href="/admin/subCatControlPage">Subcategory List</a></li>
-// <li><a href="/admin/linkControlPage">Link List</a></li>
-// <li><a href="/admin/addCategoryPage">Create Category</a></li>
-// <li><a href="/admin/addSubCategoryPage">Create Subcategory</a></li>
-// <li><a href="/admin/addLinkPage">Create Link</a></li>
-// </ul>

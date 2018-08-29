@@ -64,7 +64,7 @@ export default class AddLinkPage extends React.Component{
     console.log(subCategoryId);
     
     return (
-      <div>
+      <div id="AdminPage">
         <AdminHeader />
         <Grid fluid={true} >
           <Row>

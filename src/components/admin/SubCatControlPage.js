@@ -56,7 +56,7 @@ export default class SubCatControlPage extends React.Component{
   render(){
     console.log('SubCatControlPage - render');
     return (
-      <div>
+      <div id="AdminPage">
         <AdminHeader />
         <Grid fluid={true} >
           <Row>

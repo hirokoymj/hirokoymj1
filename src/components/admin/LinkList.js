@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from "../../firebase/firebase3";
-import {Table} from 'react-bootstrap';
+import {Table, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export default class LinkList extends React.Component{
@@ -69,14 +69,14 @@ export default class LinkList extends React.Component{
 
     return (
       <div>
-        <Table responsive>
+        <Table className="dataViewTbl">
         <thead>
         <tr>
           <th>Category</th>
           <th>Sub Category</th>
           <th>Link</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th></th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -84,16 +84,17 @@ export default class LinkList extends React.Component{
           output.map((item)=>{
             return (
               <tr key={item.id}>
-                <td>{item.categoryId}</td>
-                <td>{item.subCategoryTitle}</td>
-                <td><a href={item.url}>{item.urlName}</a></td>
-                <td>
+                <td className="itemID">{item.categoryId}</td>
+                <td className="itemTitle">{item.subCategoryTitle}</td>
+                <td className="itemURL"><a href={item.url}>{item.urlName}</a></td>
+                <td className="function-row">
+                <Button className="editBtn">
                 <Link to={{
                   pathname: `/admin/editLink/${item.id}`,
                   state: {linkItem: item}
-                }}>Edit</Link>
+                }}>Edit</Link></Button>
                 </td>                
-                <td><button onClick={()=>this.handleDelete(item.id)}>Delete</button></td>
+                <td className="function-row"><Button onClick={()=>this.handleDelete(item.id)} className="deleteBtn">Delete</Button></td>
               </tr>
             )
           })

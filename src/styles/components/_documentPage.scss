@@ -55,9 +55,21 @@
       text-align: left;
     } 
   }
-
 }
 
+/* Document Edit Page component style */
+.documentEditPage{
+  .col-sm-8{
+    float: none;
+    margin: 0 auto;
+  }
+  .documentEditForm{
+    padding-top:25px;
+    .editBtn{
+      width: 100%;
+    }
+  }
+}
 
 /* Desktop (>= 768px)
 -------------------------------------------------- */
@@ -89,16 +101,16 @@
         border: none;
       }      
     }
-  }  
+  } 
 }
 
 
 
 
 
-/* Desktop (>= 998px)
+/* Desktop (>= 992px)
 -------------------------------------------------- */
-@media (min-width: 998px) {}
+@media (min-width: 992px) {}
 
 /* Desktop (>= 1200px)
 -------------------------------------------------- */

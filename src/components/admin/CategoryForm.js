@@ -51,7 +51,7 @@ export default class CategoryForm extends React.Component{
                     value={this.state.categoryName}
                   />
                 </FormGroup>
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className="submitBtn">Submit</Button>
               </form>
             </div>
         );

@@ -14,13 +14,13 @@ export default class SubCatList extends React.Component{
     render(){
 			console.log('SubCatList - render');
 			return(
-        <Table responsive>
+        <Table className="dataViewTbl">
         <thead>
           <tr>
             <th>Catgory ID</th>
             <th>Sub Category Title</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody> 
@@ -28,15 +28,16 @@ export default class SubCatList extends React.Component{
           this.props.subCategoryItems.map((item)=>{
             return(
               <tr key={item.subId}>
-                <td>{item.categoryId}</td>
-                <td>{item.title}</td>
-                <td>
+                <td className="itemID">{item.categoryId}</td>
+                <td className="itemTitle">{item.title}</td>
+                <td className="function-row">
+                <Button className="editBtn">
                   <Link to={{
                     pathname: `/admin/editSubCat/${item.subId}`,
                     state: {subCategoryItem: item}
-                  }}>Edit</Link>
+                  }}>Edit</Link></Button>
                 </td>
-                <td><button onClick={()=>this.handleDelete(item.categoryId, item.subId)}>Delete</button></td>                
+                <td className="function-row"><Button onClick={()=>this.handleDelete(item.categoryId, item.subId)} className="deleteBtn">Delete</Button></td>                
               </tr>
             )
           })

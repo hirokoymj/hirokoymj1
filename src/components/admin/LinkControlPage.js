@@ -40,7 +40,7 @@ export default class LinkControlPage extends React.Component{
   render(){
     console.log('LinkControlPage - render');
     return (
-      <div>
+      <div id="AdminPage">
         <AdminHeader />
         <Grid fluid={true} >
           <Row>

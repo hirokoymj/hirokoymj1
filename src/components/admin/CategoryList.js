@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table} from 'react-bootstrap';
+import {Table, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 export default class CategoryList extends React.Component{
@@ -16,13 +16,13 @@ export default class CategoryList extends React.Component{
 			console.log(this.props.categoryItems);
         return (
             <div>
-              <Table responsive>
+              <Table className="dataViewTbl">
               <thead>
                 <tr>
                   <th>Category ID</th>
                   <th>Category Name</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
+                  <th>&nbsp;</th>
+                  <th>&nbsp;</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,15 +30,16 @@ export default class CategoryList extends React.Component{
                 this.props.categoryItems.map((item)=>{
                   return (
                     <tr key={item.id}>
-                      <td>{item.id}</td>
-                      <td>{item.name}</td>
-                      <td>
+                      <td className="itemID">{item.id}</td>
+                      <td className="itemName">{item.name}</td>
+                      <td className="function-row">
+                      <Button className="editBtn">
                         <Link to={{
                           pathname: `/admin/editCategory/${item.id}`,
                           state: {categoryItem: item}
-                        }}>Edit</Link>                        
+                        }}>Edit</Link></Button>                     
                       </td>
-                      <td><button onClick={()=>this.handleDelete(item.id)}>Delete</button></td>
+                      <td className="function-row"><Button onClick={()=>this.handleDelete(item.id)} className="deleteBtn">Delete</Button></td>
                     </tr>
                   )
                 })

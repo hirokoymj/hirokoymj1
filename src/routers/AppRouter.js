@@ -4,7 +4,7 @@ import {Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import HomePage from '../components/HomePage';
 import NotFoundPage from '../components/NotFoundPage';
-// import TopNav from '../layout/TopNav';
+import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
 // Tech Link Pages
 import DocumentPage from '../components/DocumentPage';
