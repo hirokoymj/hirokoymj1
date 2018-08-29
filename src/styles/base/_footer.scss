@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  margin-bottom: 80px;
+  margin-bottom: 105px; //A margin for Sticky footer. 
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
   color: #000;
@@ -24,13 +24,13 @@ body {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 80px;/* Set the fixed height of the footer here */
+	height: 105px;/* Set the fixed height of the footer here */
 	//END: Sticky footer
 	background-color: #121416;
 
-	/* ==============
-       Copyright
-     =============== */
+  /* ==============
+      Copyright
+    =============== */
 	.footer-bottom{
 		border-top: 1px solid $gray-dark-lighter;
 	}
@@ -47,9 +47,9 @@ body {
 		padding: 0 5px;
 	}
 
-	/* ==============
-       footer Icons
-     =============== */
+  /* ==============
+    footer Icons
+  =============== */
 	.icon-email{
 		float: left;
 		color: $gray-dark-lighter;
@@ -88,50 +88,36 @@ body {
 /* Desktop (>= 768px)
 -------------------------------------------------- */
 @media (min-width: 768px) {
-	.site-footer{
+  body {
+    margin-bottom: 80px;
+  }  
+
+  .site-footer{
 		/* ==============
       Sticky footer
     =============== */
-//		height: 320px;
+		height: 80px;
 
 		.copyright{
-			text-align: left;
+      text-align: left;
+      padding-top: 30px;
 		}
 		.footer-logo{
 			text-align: left;
 		}
-
-		ul.footer-nav{
-			text-align: left;
-		}
-		ul.footer-nav > li{
-			display: inline-block;
-			vertical-align: top;
-			padding-right: 25px;
-			text-align: center;
-		}
 		.footer-icons{
 			text-align: right;
-			padding: 10px 0;
 			.icons-container{
-				display: inline-block;
+        display: inline-block;
+        padding-top: 15px;
 			}
 		}
-
-
 	}
 }
 
 /* Desktop (>= 992px)
 -------------------------------------------------- */
-@media screen and (min-width: 992px) {
-	.site-footer{
-		ul.footer-nav > li{
-			width: 20%;
-		}
-	}
-
-}
+@media screen and (min-width: 992px) {}
 
 
 

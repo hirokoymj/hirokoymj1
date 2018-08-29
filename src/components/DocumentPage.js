@@ -87,10 +87,10 @@ export default class DocumentPage extends React.Component{
           </Grid>
           <Grid className="documentPage">
             <Row>
-              <Col xs={12} sm={4} className="link-form">
+              <Col xs={12} sm={4} className="documentForm">
                 <DocumentForm categoryId={this.props.match.params.id} subCategoryItems={this.state.subCategoryItems} onSubmit={this.onSubmit} />
               </Col>
-              <Col xs={12} sm={8} className="link-view">
+              <Col xs={12} sm={8} className="documentList">
                 <DocumentList subCategoryItems={this.state.subCategoryItems} linkItems={this.state.linkItems} />
               </Col>
             </Row>

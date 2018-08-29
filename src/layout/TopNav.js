@@ -6,6 +6,7 @@ import firebase, {googleAuthProvider} from '../firebase/firebase3';
 import { connect } from 'react-redux';
 import Login from '../components/Login';
 import Logout from '../components/Logout';
+import $ from 'jquery';
 
 /**
  * TopNav for hirokoymj.com. 
@@ -15,18 +16,22 @@ class TopNav extends React.Component{
     super(props);
     this.state={
       isShow: false,
+      mobileMask: false
     }
     this.handleToggle = this.handleToggle.bind(this);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   console.log('TopNav - componentDidUpdate');
-  //   console.log(prevProps);
-  // }
+  componentDidMount(){
+    // Hide mobile dropdown menu.
+    $('.menu a').on('click', function(){
+      $(".mobile-icon").click();
+    });    
+  }
 
   handleToggle(){
     this.setState((prevState)=>({
-      isShow : !prevState.isShow
+      isShow : !prevState.isShow,
+      mobileMask: !prevState.mobileMask 
     }));
   }
   
@@ -64,6 +69,7 @@ class TopNav extends React.Component{
           </ul>
         </nav>
         </Grid>
+        <div className={`mobile-nav-mask hidden ${this.state.mobileMask?'show_mobileMask':''}`}></div>
       </header>
     );
   }

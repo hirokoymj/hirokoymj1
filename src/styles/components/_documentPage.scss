@@ -7,46 +7,11 @@
 // Last updated: 2018-08-20 
 // --------------------------------------------------
 
-.documentPage{
-  .link-form{
-    background: #ededed;
-    padding:25px 15px;
-  }
-  .link-view{
-    .link-table{
-      width: 100%;
-    }
-    .link-list{
-      span{
-        padding-right: 7px;
-        padding-left: 25px;
-      }
-    }
-    .edit-link, .delete-link{
-      text-align: center;
-      width: 10%;
-    }
-    .section-title {
-      background: #fff url(http://www.hirokoymj.com/images/dot.gif) no-repeat 0 0;
-      width: 100%;
-      height: auto;
-      margin-bottom: 15px;
-      margin-top: 15px;
-      h3{
-          padding: 5px 0 8px 25px;
-          font-size: 18px;
-          line-height: 22px;
-          border-bottom: 1px solid #ccc;
-      }
-    }
-    .table>tbody>tr>td{
-      vertical-align: middle;
-      padding: 4px;
-    }
-  }
-  .panel-title{
-    font-weight: bold;
-  }
+/* Document Form component style */
+.documentForm{
+  background: #ededed;
+  padding:25px 15px;
+
   .formError{
     color: #a94442;
     padding: 0 0 5px 15px;
@@ -54,14 +19,92 @@
   .fieldErr{
     color: #a94442;
     padding-left: 5px;
-  }         
+  }
+  .panel-title{
+    font-weight: bold;
+  }    
 }
 
+/* Document List component style */
+.documentList{
+  .linkTbl{
+    width: 100%;
+    font-size: 16px;
+    tr{
+      border-bottom: 1px solid #ccc;
+      padding: 15px 0;
+    }
+    td{
+      border: none;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+    }
+    td.function-row{
+      padding:  0 0 10px 0;       
+    }
+    button{
+      width: 80%;
+    }
+    .title-row{
+      text-align: left;
+    } 
+  }
+  .section-title {
+    background: #fff url(http://www.hirokoymj.com/images/dot.gif) no-repeat 0 0;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: left;
+    h3{
+        padding: 5px 0 8px 25px;
+        font-size: 18px;
+        line-height: 22px;
+        border-bottom: 1px solid #ccc;
+        text-align: left;
+    }
+  }
+}
 
 
 /* Desktop (>= 768px)
 -------------------------------------------------- */
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+  .documentList{
+    .linkTbl{
+      tr{
+        border-bottom: 0px;
+      }
+      td{
+        display: table-cell;
+        text-align: left;
+        border-top: 1px solid #ddd;
+        width: auto;
+        vertical-align: middle;
+        span {
+          padding-right: 7px;
+          padding-left: 25px;
+        }
+      }
+      td.function-row{
+        width: 10%;
+        padding: 4px;
+      }
+      button{
+        width: auto;
+      }
+      .title-row{
+        border: none;
+      }      
+    }
+  }  
+}
+
+
+
+
 
 /* Desktop (>= 998px)
 -------------------------------------------------- */

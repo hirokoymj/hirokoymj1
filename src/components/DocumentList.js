@@ -66,7 +66,7 @@ export default class DocumentList extends React.Component{
        */       
       const tableRow = this.createTableRow(output);
 			return (
-            <Table>
+            <Table className="linkTbl">
               <tbody>
               {tableRow}
               </tbody>

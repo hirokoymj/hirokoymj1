@@ -15,10 +15,10 @@ export default class DocumentRow extends React.Component {
     return (
       <tr>
         <td className="link-list"><span>&bull;</span><a href={this.props.documentItem.url}>{this.props.documentItem.urlName}</a></td>
-        <td className="edit-link">
+        <td className="function-row">
             <Link to={{ pathname: "/editDoc", state: {linkItem: this.props.documentItem} }}><Button bsStyle="success">Edit</Button></Link>
         </td>
-        <td className="delete-link"><Button bsStyle="success" onClick={()=>this.handleDelete(this.props.documentItem.id)}>Delete</Button></td>
+        <td className="function-row"><Button bsStyle="success" onClick={()=>this.handleDelete(this.props.documentItem.id)}>Delete</Button></td>
       </tr>
     );
   }

@@ -31,20 +31,6 @@ $ heroku login
 ```js
 $ git add .
 $ git commit -am "make it better"
-$ git remote -v
-// heroku	https://git.heroku.com/react-hirokoymj.git (fetch)
-// heroku	https://git.heroku.com/react-hirokoymj.git (push)
-// hiroko1	master (fetch)
-// hiroko1	master (push)
-// hiroko2	master (fetch)
-// hiroko2	master (push)
-// hiroko3	https://github.com/hirokoymj/hirokoymj1 (fetch)
-// hiroko3	https://github.com/hirokoymj/hirokoymj1 (push)
-// origin	git@github.com:hirokoymj/hirokoymj1.git (fetch)
-// origin	git@github.com:hirokoymj/hirokoymj1.git (push)
-$ git remote rm hiroko1
-$ git remote rm hiroko2
-$ git remote rm hiroko3
 $ git push heroku master
 ```
 

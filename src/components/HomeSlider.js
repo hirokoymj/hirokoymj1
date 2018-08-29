@@ -34,7 +34,7 @@ export default class HomeSlider extends React.Component {
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
-            dots: false
+            arrows: false
           }
         }
       ]            
