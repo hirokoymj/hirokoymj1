@@ -53,7 +53,7 @@ export default class EditSubCatPage extends React.Component{
     console.log('EditSubCatPage - render');
     console.log(this.props.location.state.categoryItem);
       return (
-        <div>
+        <div id="AdminPage">
           <AdminHeader />
           <Grid fluid={true} >
             <Row>
@@ -71,15 +71,5 @@ export default class EditSubCatPage extends React.Component{
     }
 }
 
-// <div>
-// <Menu />
-//   <Grid>
-//       <Row>
-//           <Col xs={12}>
-//             <h1>Edit Subcategory Page</h1>
-//             <SubCatEditForm onSubmit={this.onSubmit} categoryItems={this.state.categoryItems} subCategoryItem={this.props.location.state.subCategoryItem} />
-//           </Col>
-//       </Row>
-//   </Grid>
-// </div>
+
 

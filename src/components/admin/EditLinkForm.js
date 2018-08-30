@@ -118,7 +118,7 @@ class EditLinkForm extends React.Component{
                 value={this.state.url}
                 onChange={this.handleChange} />            
           </FormGroup>
-          <Button type="submit">Submit</Button>          
+          <Button type="submit" className="submitBtn">Submit</Button>          
         </form>
       </div>
     )

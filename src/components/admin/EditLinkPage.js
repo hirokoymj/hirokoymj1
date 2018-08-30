@@ -57,7 +57,7 @@ export default class EditLinkPage extends React.Component{
     console.log('EditLinkPage - render');
     //console.log(this.state.subCategoryItems);
     return (
-      <div>
+      <div id="AdminPage">
         <AdminHeader />
         <Grid fluid={true} >
           <Row>

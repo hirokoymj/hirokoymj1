@@ -1,3 +1,18 @@
+/* Colors 
+-------------------------------------------------- */
+$brand-primary: #a2d0ff !default;
+$brand-secondary: #77BAFF !default;
+
+$white: #fff;
+$black: #000;
+
+//## Gray
+$gray-dark: #333333; //footer-bg
+$gray-dark-lighter:	#757575; //footer-text
+
+//## Text
+$text-color: #333 !default;
+
 p{
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -5,32 +20,3 @@ p{
   color: #000;
   margin-bottom: 10px;
 }
-
-
-.slick-slide img {
-	margin: 0 auto;
-}
-.slick-prev:before, .slick-next:before {
-	color: #000;
-}
-.slick-prev {
-	left: 0;
-	z-index: 9999;
-}
-.slick-next {
-	right: 0;
-}
-
-
-
-
-/* Desktop (>= 992px)
--------------------------------------------------- */
-@media (min-width: 992px) {}
-
-/* Desktop (>= 1200px)
--------------------------------------------------- */
-@media (min-width: 1200px){}
-
-
-

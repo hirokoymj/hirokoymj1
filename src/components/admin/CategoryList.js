@@ -33,11 +33,11 @@ export default class CategoryList extends React.Component{
                       <td className="itemID">{item.id}</td>
                       <td className="itemName">{item.name}</td>
                       <td className="function-row">
-                      <Button className="editBtn">
+                      
                         <Link to={{
                           pathname: `/admin/editCategory/${item.id}`,
                           state: {categoryItem: item}
-                        }}>Edit</Link></Button>                     
+                        }}><Button className="editBtn">Edit</Button></Link>                     
                       </td>
                       <td className="function-row"><Button onClick={()=>this.handleDelete(item.id)} className="deleteBtn">Delete</Button></td>
                     </tr>

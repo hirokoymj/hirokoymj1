@@ -30,7 +30,7 @@ export default class EditCategoryPage extends React.Component{
     console.log('EditCategoryPage - render');
     console.log(this.props.location.state.categoryItem);
       return (
-        <div>
+        <div id="AdminPage">
           <AdminHeader />
           <Grid fluid={true} >
             <Row>
@@ -48,14 +48,3 @@ export default class EditCategoryPage extends React.Component{
     }
 }
 
-// <div>
-// <Menu />
-//   <Grid>
-//       <Row>
-//           <Col xs={12}>
-//             <h1>Edit Category </h1>
-//             <CategoryForm onSubmit={this.onSubmit} categoryItem={this.props.location.state.categoryItem} />
-//           </Col>
-//       </Row>
-//   </Grid>
-// </div>

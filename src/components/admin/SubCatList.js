@@ -31,11 +31,10 @@ export default class SubCatList extends React.Component{
                 <td className="itemID">{item.categoryId}</td>
                 <td className="itemTitle">{item.title}</td>
                 <td className="function-row">
-                <Button className="editBtn">
                   <Link to={{
                     pathname: `/admin/editSubCat/${item.subId}`,
                     state: {subCategoryItem: item}
-                  }}>Edit</Link></Button>
+                  }}><Button className="editBtn">Edit</Button></Link>
                 </td>
                 <td className="function-row"><Button onClick={()=>this.handleDelete(item.categoryId, item.subId)} className="deleteBtn">Delete</Button></td>                
               </tr>
