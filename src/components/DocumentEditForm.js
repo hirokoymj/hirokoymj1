@@ -2,8 +2,14 @@ import React from 'react';
 import firebase from "../firebase/firebase3";
 import { withRouter } from 'react-router';
 import {FormGroup, FormControl, ControlLabel, Button} from 'react-bootstrap';
+import validator from 'validator';
+import { toast } from 'react-toastify';
+import { history } from '../routers/AppRouter';
 
-class DocumentEditForm extends React.Component{
+/**
+ * Editing a techincal document link.
+ */
+export default class DocumentEditForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -11,7 +17,9 @@ class DocumentEditForm extends React.Component{
       categoryId: this.props.linkItem.categoryId,
       subCategoryId: this.props.linkItem.subCategoryId,
       urlName: this.props.linkItem.urlName,
-      url: this.props.linkItem.url
+      urlNameErr: null,
+      url: this.props.linkItem.url,
+      urlErr: null
     }
   }
 
@@ -41,22 +49,58 @@ class DocumentEditForm extends React.Component{
   }
   handleSubmit = (e)=>{
     e.preventDefault();
+    /* Get form data  */
     const {categoryId, subCategoryId, urlName, url} = this.state;
-    const data = {
-      categoryId,
-      subCategoryId,
-      urlName,
-      url
+
+    /* Reset error handling values. */
+    const errArray = [];
+    let errMsg = '';
+    this.setState({
+      urlNameErr: null,
+      urlErr: null
+    });
+    
+    /* Validating form  */
+    if(validator.isEmpty(this.state.urlName)){
+      errArray.push('userName');
+      errMsg = "Please fill in required field(s).";
+      this.setState(()=>({
+        urlNameErr: "error",
+      }));
     }
-    firebase.database().ref('links/' + this.props.linkItem.id).update(data)
-      .then(()=>{
-        console.log('Data has been updated!');
-        //console.log(this.props);
-        //Redirect to TestControlPage
-        this.props.history.push(`/document/${this.state.categoryId}`); 
-      }).catch((e)=>{
-        console.log('This failed.', e);
-    })    
+    if(validator.isEmpty(this.state.url)){
+      errArray.push('url');
+      errMsg = "Please fill in required field(s).";
+      this.setState(()=>({
+        urlErr: "error",
+      }));
+    }else{
+      if(!validator.isURL(this.state.url)){
+        errArray.push('url');
+        errMsg = "URL format is wrong.";
+        console.log('FORMAT ERROR');
+        this.setState(()=>({
+          urlErr: "error",
+        }));
+      }
+    }
+    
+    if(errArray.length > 0){
+      toast.error(errMsg);
+    }else{
+      const data = {
+        categoryId,
+        subCategoryId,
+        urlName,
+        url
+      }
+      firebase.database().ref('links/' + this.props.linkItem.id).update(data)
+        .then(()=>{
+          history.push(`/document/${this.state.categoryId}`);
+        }).catch((e)=>{
+          console.log('This failed.', e);
+      })  
+    }
   }
   
 
@@ -64,7 +108,6 @@ class DocumentEditForm extends React.Component{
     console.log('EditForm - render');
     console.log(this.props.categoryItems);
     console.log(this.props.subCategoryItems);
-
     // Generated sub category dropdown with default category ID is JS.
     const filteredSubCategory = this.props.subCategoryItems.filter(item => item.categoryId === this.state.categoryId);
 
@@ -103,7 +146,7 @@ class DocumentEditForm extends React.Component{
             }
             </FormControl>            
           </FormGroup>
-          <FormGroup>
+          <FormGroup controlId="urlName" validationState={this.state.urlNameErr}>
             <ControlLabel>URL name</ControlLabel>
             <FormControl
                 type="text"
@@ -111,7 +154,7 @@ class DocumentEditForm extends React.Component{
                 value={this.state.urlName}
                 onChange={this.handleChange} />            
           </FormGroup>
-          <FormGroup>
+          <FormGroup controlId="url" validationState={this.state.urlErr}>
             <ControlLabel>URL</ControlLabel>
             <FormControl
                 type="text"
@@ -125,5 +168,5 @@ class DocumentEditForm extends React.Component{
     )
   }
 }
-export default withRouter(DocumentEditForm);
+
 

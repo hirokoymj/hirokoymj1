@@ -4,6 +4,7 @@ import firebase from "../firebase/firebase3";
 import DocumentEditForm from './DocumentEditForm';
 import TopNav from '../layout/TopNav';
 import PageHeader from '../layout/PageHeader';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export default class DocumentEditPage extends React.Component{
@@ -70,6 +71,7 @@ export default class DocumentEditPage extends React.Component{
             </Col>            
           </Row>
         </Grid>
+        <ToastContainer hideProgressBar />              
       </div>
     );
   }

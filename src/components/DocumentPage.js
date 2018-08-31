@@ -5,6 +5,7 @@ import PageHeader from '../layout/PageHeader';
 import TopNav from '../layout/TopNav';
 import DocumentForm from './DocumentForm';
 import DocumentList from './DocumentList';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export default class DocumentPage extends React.Component{
@@ -65,12 +66,14 @@ export default class DocumentPage extends React.Component{
       console.log("onSubmit");
       firebase.database().ref('links').push(data)
       .then(()=>{
-        console.log('success');
+        toast.success("Success to save!"); 
       }).catch((e)=>{
         console.log('Error', e);
+        toast.error("Error - failed to save."); 
       });      
     }
-	
+
+
     render(){
 			console.log('LinkPage - render');
 			return (
@@ -87,19 +90,10 @@ export default class DocumentPage extends React.Component{
               </Col>
             </Row>
           </Grid>
+          <ToastContainer hideProgressBar />              
         </div>
 			);
     }
 }
 
 
-
-// <Grid fluid={true} className="page-header">
-// <Grid>
-//     <Row>
-//         <Col xs={12}>
-//           <PageHeader pageTitle={this.props.match.params.id==='js' ? 'JavaScript' : this.props.match.params.id}/>
-//         </Col>
-//     </Row>
-// </Grid>
-// </Grid>

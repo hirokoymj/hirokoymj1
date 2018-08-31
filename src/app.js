@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AppRouter, {history} from './routers/AppRouter';
-import 'normalize.css/normalize.css';
-import './styles/hirokoymj.scss';
 import firebase from "./firebase/firebase3";
+// Redux
 import { createStore } from 'redux';
 import authReducer from './reducers/authReducer';
 import {login, logout} from './actions/auth';
 import { Provider } from 'react-redux';
+//CSS
+import 'normalize.css/normalize.css';
+import './styles/hirokoymj.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const store = createStore(authReducer);
