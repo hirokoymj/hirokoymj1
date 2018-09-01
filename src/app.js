@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log('log in');
     store.dispatch(login({uid: user.uid, displayName: user.displayName}));
-    //console.log(store.getState());
+    history.push('/admin/categoryControlPage');
   } else {
     console.log('log out');
     store.dispatch(logout());
