@@ -1,0 +1,84 @@
+//
+// Modal style 
+// Mobile First Method.
+// Created by HY.
+// Last updated: 2018-08-31
+// --------------------------------------------------
+
+/* Modal Top style (setting in React Component) */
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+  outline: 0;
+}
+
+/* Overlay (setting in React component) */
+.Overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.70);
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+
+/* Modal Body */
+.modal-body {
+  position: relative;
+  padding: 35px 35px 0 35px;
+  h1{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:32px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+  }
+  p{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:25px;
+    line-height: 25px;
+    color: #444444;
+    text-align: center;
+  }  
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding-bottom: 15px;
+  text-align: center;
+  border: none;
+}
+.modal-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+/* Desktop (>= 768px)
+-------------------------------------------------- */
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
+}
