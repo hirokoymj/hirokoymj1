@@ -21,8 +21,10 @@ class HomeBio extends React.Component {
                               <li>React.js</li>
                               <li>React Router</li>
                               <li>Redux</li>
-                              <li>React-Slick</li>
-                              <li>React-bootstrap</li>
+                              <li>React Modal</li>
+                              <li>React Toastify</li>
+                              <li>React slick</li>
+                              <li>React bootstrap</li>
                               <li>Firebase Database</li>
                               <li>Firebase Authentication</li>
                               <li>Webpack</li>
