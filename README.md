@@ -34,6 +34,10 @@ $ git commit -am "make it better"
 $ git push heroku master
 ```
 
+```js
+git remote -v
+
+```
 
 # Reference
 - [my dashboad - Deploy tab](https://dashboard.heroku.com/apps/react-hirokoymj/deploy/heroku-git)
