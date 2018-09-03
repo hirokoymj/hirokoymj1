@@ -6,8 +6,6 @@
 
 ### Core technologies: 
 
-www.hirokoymj.com is a single page web application and here are core technologies that I used to build in the site:
-
 - React.js
 - React Router
 - Redux
@@ -22,12 +20,18 @@ www.hirokoymj.com is a single page web application and here are core technologie
 - npm
 - Heroku web server
 
+### Description
+I developed hirokoymj.com to share my technical articles. It is a single page web application built with React.js.
+
+
 
 ### Screenshot
+![Alt text](/public/images/screen-desktop.png?raw=true "desktop")
 
-![](http://www.hirokoymj.com/images/screen-desktop.png)
 
-![](http://www.hirokoymj.com/images/screen-mobile.png)
+![Alt text](/public/images/screen-mobile.png?raw=true "mobile")
+
+
  
 
 
