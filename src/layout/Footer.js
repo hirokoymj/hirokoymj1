@@ -13,7 +13,7 @@ export default class Footer extends React.Component{
               </Col>
               <Col xs={12} sm={3} className="footer-icons">
                   <div className="icons-container">
-                      <a href="https://github.com/hirokoymj/" target="_blank" className="icon-github">
+                      <a href="https://github.com/hirokoymj/hirokoymj1" target="_blank" className="icon-github">
                           <i className="fab fa-github"></i>
                       </a>
                       <a href="mailto:hiroko@hirokoymj.com" className="icon-email">

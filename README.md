@@ -1,43 +1,38 @@
-# How to deploy the app in Heroku
-1. Build the app with production version. See package.json
+# React.js web application - hirokoymj.com
 
-```js
-$ npm run heroku-postbuild
-//webpack -p --env=production
-// env production
-// Hash: 4fbbb97ec66f981b5208
-// Version: webpack 3.1.0
-// Time: 14314ms
-//         Asset     Size  Chunks                    Chunk Names
-//     bundle.js   782 kB       0  [emitted]  [big]  main
-//     style.css  7.43 kB       0  [emitted]         main
-// bundle.js.map  6.53 MB       0  [emitted]         main
-// style.css.map    22 kB       0  [emitted]         main
-```
-2. Run express server if the site works properly.
-```js
-$ npm start
-```   
-Browse the content in http://127.0.0.1:3000/
+### Live URL
 
-3. Login heroku
+[http://www.hirokoymj.com](http://www.hirokoymj.com)
 
-```js
-$ heroku login
-```
+### Core technologies: 
 
-3. Deploy your changes
+www.hirokoymj.com is a single page web application and here are core technologies that I used to build in the site:
 
-```js
-$ git add .
-$ git commit -am "make it better"
-$ git push heroku master
-```
+- React.js
+- React Router
+- Redux
+- React Slick Slider
+- React Modal
+- React Toastify
+- Firebase database
+- Firebase authentication
+- Bootstrap grid system
+- Sass
+- Webpack
+- npm
+- Heroku web server
 
-```js
-git remote -v
 
-```
+### Screenshot
 
-# Reference
-- [my dashboad - Deploy tab](https://dashboard.heroku.com/apps/react-hirokoymj/deploy/heroku-git)
+![](http://www.hirokoymj.com/images/screen-desktop.png)
+
+![](http://www.hirokoymj.com/images/screen-mobile.png)
+ 
+
+
+
+
+
+
+
