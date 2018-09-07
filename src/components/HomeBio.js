@@ -28,7 +28,7 @@ class HomeBio extends React.Component {
                               <li>Firebase Database</li>
                               <li>Firebase Authentication</li>
                               <li>Webpack</li>
-                              <li>npm</li>
+                              <li>JSONP</li>
                               <li>Heroku web server</li>
                           </ul>
                         </div>                    

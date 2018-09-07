@@ -1,0 +1,75 @@
+//
+// Weather Widge
+// www.hirokoymj.com/
+// Mobile First Method.
+// Created by HY.
+// Last updated: 2018-08-20 
+// --------------------------------------------------
+
+
+.weatherWidget{
+  background: #353c44;
+  color: #5cb85c;
+  td{
+    padding: 10px;
+  }
+  .city{
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .wi{
+    font-size: 50px;
+  }
+  .weatherImg{
+    widht: 80px;
+    height: auto;
+  }
+  .weather-icon{
+    width: 80px;
+    height: auto;
+  }
+  .currentTemp{
+    font-size: 1.6em;
+  }
+  .weatherDesc{
+    font-size: 0.9em;
+    text-align: left;
+  }
+}
+
+.weatherWidget-white{
+  background: #fff;
+  color: #353c44;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  td{
+    padding: 3px;
+  }
+  .city{
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+  }
+  .wi{
+    font-size: 30px;
+  }
+  .weather-icon{
+    width: 80px;
+    height: auto;
+  }
+  .currentTemp{
+    font-size: 1.3em;
+  }
+}
+
+/* Desktop (>= 768px)
+-------------------------------------------------- */
+@media (min-width: 768px) {}
+
+/* Desktop (>= 998px)
+-------------------------------------------------- */
+@media (min-width: 998px) {}
+
+/* Desktop (>= 1200px)
+-------------------------------------------------- */
+@media (min-width: 1200px) {}

@@ -9,11 +9,9 @@
 .site-header{
   position: relative; //Must define relative so that a dropdown.menu is stretch 100% for desktop.
   width: 100%;
-  height: 60px;
+  //height: 68px;
+  height: 58px;
   background: #fff;
-  .container{
-    height: 60px;
-  }
 }
 
 .site-logo{
@@ -123,6 +121,7 @@ nav{
 /* Desktop (>= 768px)
 -------------------------------------------------- */
 @media (min-width: 768px) {
+
   .mobile-icon{
       display: none;
   }
@@ -130,6 +129,7 @@ nav{
       display: none!important;
   }
   .site-header{
+    height: auto;
     .container{
       padding-left: 0;
       padding-right: 0;
