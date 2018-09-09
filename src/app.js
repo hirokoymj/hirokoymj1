@@ -34,5 +34,8 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
+// clear all items
+localStorage.clear();
+
 
 
