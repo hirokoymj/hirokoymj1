@@ -10,7 +10,7 @@ export default class DocumentForm extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            categoryId: this.props.categoryId,
+            //categoryId: this.props.categoryId,
             subCategoryId: this.props.subCategoryItems.length !== 0 ? this.props.subCategoryItems[0].subId : '',
             urlName: '',
             urlNameErr: null,
@@ -20,6 +20,7 @@ export default class DocumentForm extends React.Component{
     }
 
     componentDidUpdate(prevProps){
+      console.log('DocumentForm - componentDidUpdate');
       if(prevProps.subCategoryItems !== this.props.subCategoryItems){
         let defaultSelectValue = this.props.subCategoryItems.length !==0 ? this.props.subCategoryItems[0].subId : '';
         this.setState({
@@ -77,21 +78,23 @@ export default class DocumentForm extends React.Component{
         if(errArray.length > 0){
           toast.error(errMsg);
         }else{
-          const {categoryId, subCategoryId, urlName, url} = this.state;
+          //const {categoryId, subCategoryId, urlName, url} = this.state;
+          const {subCategoryId, urlName, url} = this.state;
           const data = {
-            categoryId,
+            categoryId: this.props.categoryId,
             subCategoryId,
             urlName,
             url
-          }          
+          }     
+          console.log(data)     
           // Submit form data
           this.props.onSubmit(data);
           // Reset form fields
           this.setState({
               urlName: '',
-              urlNameErr: '',
+              urlNameErr: null,
               url: '',
-              urlErr: ''
+              urlErr: null
           });
         }
     }
