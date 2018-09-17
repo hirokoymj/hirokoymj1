@@ -6,7 +6,7 @@ import firebase, {googleAuthProvider} from '../firebase/firebase3';
 import { connect } from 'react-redux';
 import Login from '../components/Login';
 import Logout from '../components/Logout';
-//import WeatherWidget from '../components/WeatherWidget';
+import WeatherWidget from '../components/WeatherWidget';
 import $ from 'jquery';
 
 /**
@@ -41,6 +41,7 @@ class TopNav extends React.Component{
       <header className="site-header">
         <Grid>			
         <div className="site-logo"><NavLink to="/" exact={true}><img src="/images/logo.png" /></NavLink></div>
+        <div className="pull-left"><WeatherWidget /></div>
         <nav>
           <div className="mobile-icon" onClick={this.handleToggle}><i className="fa fa-bars" aria-hidden="true"></i></div>
           {this.state.isShow}
@@ -87,4 +88,3 @@ const mapStateToProps = (state)=>{
 }
 export default connect(mapStateToProps)(TopNav);
 
-// <div className="pull-left"><WeatherWidget /></div>

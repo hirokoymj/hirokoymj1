@@ -16,29 +16,52 @@ export default class WeatherWidget extends React.Component{
   
   componentDidMount(){
     console.log('WeatherWidget - componentDidMount');
+    //LA downtown is the default
+    const default_latitude = 34.0522342;  
+    const default_lotitude = -118.2436849;
+
     if(localStorage.getItem('myWeather')){
       const weatherData = JSON.parse(localStorage.getItem('myWeather'));
       this.setState(()=>({
         weatherData
       }));
     }else{
-     // Ges HTML5 Geo location 
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition((position)=>{
-          let lon = Math.round(position.coords.longitude*1000)/1000;
-          let lat = Math.round(position.coords.latitude*1000)/1000;
-          /* Calls Open Weather Map API */
-          console.log('lon', position.coords.longitude);
-          console.log('lat', position.coords.latitude);
-          this.getWeatherInfo(lat, lon);
-        });
-      } else {
-        /* If geolocation is NOT available, set Los Angeles. */
-        this.setState(()=>{
-          lon:-118.3993
-          lat:34.0291
-        })
-      }
+      fetch("http://ipinfo.io/json?token=4cb10e9b3bcb4c")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          if(result.loc){
+            const [lat, lon] = result.loc.split(',');
+            this.getWeatherInfo(lat, lon);
+          }else{
+            // Set LA downtonw locatino as a default 
+            this.getWeatherInfo(default_latitude, default_lotitude);
+          }
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.getWeatherInfo(default_latitude, default_lotitude);
+        }
+      )
+    }
+  }
+
+  /* HTML5 Geolocation - need to https */
+  getGeolocationHTML5 = () =>{
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position)=>{
+        let lon = Math.round(position.coords.longitude*1000)/1000;
+        let lat = Math.round(position.coords.latitude*1000)/1000;
+        /* Calls Open Weather Map API */
+        console.log('lon', position.coords.longitude);
+        console.log('lat', position.coords.latitude);
+        this.getWeatherInfo(lat, lon);
+      });
+    } else {
+      /* If geolocation is NOT available, set Los Angeles. */
+      console.log('your browser does not avaiable geolocation.');
     }
   }
 
@@ -48,7 +71,7 @@ export default class WeatherWidget extends React.Component{
     let unit = "imperial";
     let type = "accurate";
     let apiKey = "be2d43efb7b89c5d69256d7ec44da9b8";
-    let url = `https://api.openweathermap.org/data/2.5/weather?lon=${lon}&lat=${lat}&units=${unit}&type=${type}&APPID=${apiKey}`;
+    let url = `http://api.openweathermap.org/data/2.5/weather?lon=${lon}&lat=${lat}&units=${unit}&type=${type}&APPID=${apiKey}`;
 
     fetchJsonp(url, {callback: 'test'})
       .then( response => response.json())
@@ -90,6 +113,7 @@ export default class WeatherWidget extends React.Component{
               <tr>
                 <td>
                   <i className={`wi ${weatherFont}`}></i>
+                  <img src="" />
                 </td>
                 <td>
                   <div className="currentTemp">{temp}&#8457;</div>
@@ -130,3 +154,6 @@ const convertWeatherIcon = (icon) =>{
   return weatherIcon[icon];
 }
 
+/**
+ * Convert weather icon to weather font.
+ */
