@@ -9,15 +9,18 @@ export default class DocumentList extends React.Component{
       super(props)
     }
 
-    createTableRow(linkItems){
+    createTableRow(){
       const rows = [];
       let lastSubcategoryId = null;
-      linkItems.forEach((item) => {
+
+      this.props.linkItems.forEach((item) => {
         if (item.subCategoryId !== lastSubcategoryId) {
+          let title = this.convertSubCategoryIdToTitle(item.subCategoryId)
           rows.push(
             <DocumentTitleRow
             key={item.urlName}
-            title={item.subCategoryTitle}
+            //title={item.subCategoryTitle}
+            title={title}
             />
           );
         }
@@ -34,6 +37,27 @@ export default class DocumentList extends React.Component{
       return rows;
     }
 
+
+    /**
+     * Convert SubCategory ID to Title for LinkItem 
+     * @param {string }id - subCategory ID
+     * @example 
+     * // SubCategoryItem Array
+     * // {categoryId: "js", subId: "-LJ6UhaPPvtExhd2r_Yw", title: "Advanced JavaScript"}
+     * @example
+     * // LinkItems Array 
+     * // {id: "-LJkWLeW1oarhFxw9IaM", categoryId: "js", subCategoryId: "-LJ6UhaPPvtExhd2r_Yw", url: "https://test.com", urlName: "test"}
+     */   
+    convertSubCategoryIdToTitle(id){
+      let title = '';
+      this.props.subCategoryItems.forEach(item=>{
+        if(item.subId === id){
+          title = item.title
+        }
+      })
+      return title;
+    }
+
     onDelete = (id)=>{
       console.log(`DocumentList - onDelete(${id})`);
       firebase.database().ref('links/' + id).remove()
@@ -45,26 +69,14 @@ export default class DocumentList extends React.Component{
     }	
 
     render(){
-      console.log('DocumentList - render');
-      console.log(this.props.subCategoryItems);
-      /**
-       * Replacing subcategory ID to subcategory title.
-       */      
-      const output = this.props.linkItems.map((linkItem)=>{
-        const obj = this.props.subCategoryItems.find((subItem) =>{ 
-          return linkItem.subCategoryId === subItem.subId
-        })
-        if(obj !== undefined){
-          linkItem['subCategoryTitle'] = obj['title'];
-        }
-        return linkItem;
-      });
-      console.log(output);
+      // console.log('DocumentList - render');
+      // console.log(this.props.subCategoryItems);
+      // console.log(this.props.linkItems);
 
       /**
        * Creating table rows
        */       
-      const tableRow = this.createTableRow(output);
+      const tableRow = this.createTableRow();
 			return (
             <Table className="linkTbl">
               <tbody>

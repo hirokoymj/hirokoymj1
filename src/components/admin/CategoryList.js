@@ -12,8 +12,9 @@ export default class CategoryList extends React.Component{
     }
 
     render(){
-			console.log('render');
-			console.log(this.props.categoryItems);
+      /* Sort by categoryId */
+      this.props.categoryItems.sort((a,b)=>(a.id < b.id)? -1: 1);
+      
         return (
             <div>
               <Table className="dataViewTbl">
@@ -33,7 +34,6 @@ export default class CategoryList extends React.Component{
                       <td className="itemID">{item.id}</td>
                       <td className="itemName">{item.name}</td>
                       <td className="function-row">
-                      
                         <Link to={{
                           pathname: `/admin/editCategory/${item.id}`,
                           state: {categoryItem: item}

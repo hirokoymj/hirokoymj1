@@ -1,6 +1,7 @@
 import React from 'react';
 import fetchJsonp from 'fetch-jsonp';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
+
 
 /**
  * Weather Widget from Open Weather Map API.
@@ -10,7 +11,7 @@ export default class WeatherWidget extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      weatherData: {}
+      weatherData: {},    
     }
   }
   
@@ -38,9 +39,6 @@ export default class WeatherWidget extends React.Component{
             this.getWeatherInfo(default_latitude, default_lotitude);
           }
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           this.getWeatherInfo(default_latitude, default_lotitude);
         }
@@ -49,21 +47,21 @@ export default class WeatherWidget extends React.Component{
   }
 
   /* HTML5 Geolocation - need to https */
-  getGeolocationHTML5 = () =>{
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position)=>{
-        let lon = Math.round(position.coords.longitude*1000)/1000;
-        let lat = Math.round(position.coords.latitude*1000)/1000;
-        /* Calls Open Weather Map API */
-        console.log('lon', position.coords.longitude);
-        console.log('lat', position.coords.latitude);
-        this.getWeatherInfo(lat, lon);
-      });
-    } else {
-      /* If geolocation is NOT available, set Los Angeles. */
-      console.log('your browser does not avaiable geolocation.');
-    }
-  }
+  // getGeolocationHTML5 = () =>{
+  //   if ("geolocation" in navigator) {
+  //     navigator.geolocation.getCurrentPosition((position)=>{
+  //       let lon = Math.round(position.coords.longitude*1000)/1000;
+  //       let lat = Math.round(position.coords.latitude*1000)/1000;
+  //       /* Calls Open Weather Map API */
+  //       console.log('lon', position.coords.longitude);
+  //       console.log('lat', position.coords.latitude);
+  //       this.getWeatherInfo(lat, lon);
+  //     });
+  //   } else {
+  //     /* If geolocation is NOT available, set Los Angeles. */
+  //     console.log('your browser does not avaiable geolocation.');
+  //   }
+  // }
 
 
   getWeatherInfo = (lat, lon) =>{
@@ -72,12 +70,13 @@ export default class WeatherWidget extends React.Component{
     let type = "accurate";
     let apiKey = "be2d43efb7b89c5d69256d7ec44da9b8";
     let url = `http://api.openweathermap.org/data/2.5/weather?lon=${lon}&lat=${lat}&units=${unit}&type=${type}&APPID=${apiKey}`;
+    //console.log(url);
 
     fetchJsonp(url, {callback: 'test'})
       .then( response => response.json())
       .then(
         (json) => {
-          //console.log('parsed json', json);
+          console.log('parsed json', json);
           let city = json.name;
           const {temp} = json.main;
           const {icon} = json.weather[0];
@@ -100,9 +99,10 @@ export default class WeatherWidget extends React.Component{
       )
   }
 
+
   render(){
     const {city, temp, weatherFont} = this.state.weatherData;
-    
+    let weatherLink = `/weather?lat=${this.state.weatherData.lat}&lon=${this.state.weatherData.lon}`;
     return (
         <div>
           <table className="weatherWidget-white">
@@ -129,6 +129,7 @@ export default class WeatherWidget extends React.Component{
 
 /**
  * Convert weather icon to weather font.
+ * @param {string} icon - the icon code in Open Weather Map API.
  */
 const convertWeatherIcon = (icon) =>{
   const weatherIcon = {
@@ -154,6 +155,5 @@ const convertWeatherIcon = (icon) =>{
   return weatherIcon[icon];
 }
 
-/**
- * Convert weather icon to weather font.
- */
+
+// <Link to={weatherLink}>5day forecast</Link>

@@ -10,7 +10,7 @@ class HomeBio extends React.Component {
                     <Col xs={12} sm={6}>
                     <div className="section-title">
                       <h3><img src="/images/dot.png" alt="About Me" /> About Me</h3>
-                      <p>I am Front-End web developer in Los Angeles over ten years. My strong languages are <b>JavaScript and React.js</b> and I will learn and update new technologies using <a href="http://www.udemy.com">Udemy.com</a> and local meetup groups. My hobby is to read a book and play golf.</p>
+                      <p>I am a Front-End web developer in Los Angeles over ten years. My strong languages are <b>JavaScript and React.js</b> and I will learn and update new technologies using <a href="http://www.udemy.com">Udemy.com</a> and local meetup groups. My hobby is to read a book and play golf.</p>
                      </div>
                     </Col>
                     <Col xs={12} sm={6}>

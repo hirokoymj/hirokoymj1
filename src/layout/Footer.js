@@ -3,7 +3,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 
 export default class Footer extends React.Component{
   render(){
-    var currentYear = (new Date()).getFullYear();
+    let currentYear = (new Date()).getFullYear();
     return(
       <div className="site-footer">
       <Grid >

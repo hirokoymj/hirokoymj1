@@ -11,8 +11,23 @@ export default class SubCatList extends React.Component{
       this.props.onDelete(categoryId, subCategoryId);
     }
 
+    sortByCatAndSubCat = (array)=>{
+      const sortedArray = array;
+      sortedArray.sort((a,b)=>{
+        if(a.categoryId === b.categoryId){
+          return (a.title < b.title) ? -1: 1;
+        }else{
+          return (a.categoryId<b.categoryId) ? -1: 1;
+        }
+      });
+      return sortedArray;
+    }
+
     render(){
-			console.log('SubCatList - render');
+      // console.log('SubCatList - render');
+      /* Sort by category and sub category. */
+      const output = this.sortByCatAndSubCat(this.props.subCategoryItems);
+
 			return(
         <Table className="dataViewTbl">
         <thead>
@@ -25,7 +40,7 @@ export default class SubCatList extends React.Component{
         </thead>
         <tbody> 
         {
-          this.props.subCategoryItems.map((item)=>{
+          output.map((item)=>{
             return(
               <tr key={item.subId}>
                 <td className="itemID">{item.categoryId}</td>

@@ -109,10 +109,11 @@ export default class DocumentForm extends React.Component{
                 <Panel.Title componentClass="h3">Create New Link</Panel.Title>
               </Panel.Heading>
               <Panel.Body>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="linkCreateForm">
                 <FormGroup>
-                  <ControlLabel>Category:</ControlLabel>
-                  <FormControl.Static><b>{this.props.categoryId}</b></FormControl.Static>
+                  <ControlLabel>
+                    Category:<span className="categoryName">{this.props.categoryId==="js" ? "JavaScript" : this.props.categoryId}</span>
+                  </ControlLabel>
                 </FormGroup>
                 <FormGroup >
                   <ControlLabel>Subcategory:</ControlLabel>
@@ -122,11 +123,9 @@ export default class DocumentForm extends React.Component{
                       name="subCategoryId"
                       onChange={this.handleSelectChange}>
                       {
-                          this.props.subCategoryItems.map((item)=>{
-                              return(
-                                  <option key={item.subId} value={item.subId}>{item.title}</option>
-                              )
-                          })
+                        this.props.subCategoryItems.map((item)=>
+                            <option key={item.subId} value={item.subId}>{item.title}</option>
+                        )
                       }
                   </FormControl>
                 </FormGroup>

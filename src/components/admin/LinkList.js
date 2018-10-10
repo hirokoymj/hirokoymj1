@@ -17,6 +17,7 @@ export default class LinkList extends React.Component{
   componentWillUnmount() {
     this.isUnmounted = true;
   }
+
   getLinkData(){
     console.log('LinkList - getLinkData')
     const query = firebase.database().ref('links').orderByChild('subCategoryId');
@@ -27,20 +28,21 @@ export default class LinkList extends React.Component{
           const obj = Object.assign({id:key}, childSnapshot.val());
           result.push(obj);
       });
-      console.log(result);
       if(!this.isUnmounted){
         this.setState(()=>({linkItems: result}));
       }
     });
   }
 
-  compare(a,b) {
-    if (a.subCategoryId < b.subCategoryId)
-      return -1;
-    if (a.subCategoryId > b.subCategoryId)
-      return 1;
-    return 0;
-  }
+  // compare = (a,b) => {
+  //   if (a.subCategoryId < b.subCategoryId)
+  //     return -1;
+  //   if (a.subCategoryId > b.subCategoryId)
+  //     return 1;
+  //   return 0;
+  // }
+
+
   handleDelete = (id) => {
     console.log('handleDelete');
     firebase.database().ref('links/' + id).remove()
@@ -50,29 +52,41 @@ export default class LinkList extends React.Component{
       .catch(function(error) {
         console.log("Remove failed: " + error.message)
       });
+  }
+  sortByCategory = (linkItems) =>{
+    const sortedLinkItems = linkItems;
+    sortedLinkItems.sort((a,b) => {
+      if(a.categoryId == b.categoryId){ // if categoryID is same, sort by subCategoryId
+        return (a.subCategoryId < b.subCategoryId) ? -1 : 1;
+      }else{
+        return (a.categoryId < b.categoryId) ? -1 : 1
+      }
+    });
+    return sortedLinkItems;
   }  
 
   render(){
-    console.log('TestList - render');
+    //console.log('TestList - render');
+    //console.log(this.state.linkItems);
+    console.log(this.props.subCategoryItems);
 
     // Replacing subCategoryId to a title name.
-    const output = this.state.linkItems.map((linkItem)=>{
-      const obj = this.props.subCategoryItems.find((subItem) =>{ 
-        return linkItem.subCategoryId === subItem.subId
-      })
-      //console.log(obj);
-      if(obj !== undefined){
-        linkItem['subCategoryTitle'] = obj['title'];
+    const linkCollection = this.state.linkItems.map(linkItem => {
+      const found = this.props.subCategoryItems.find(item => linkItem.subCategoryId === item.subId);
+      if(found !== undefined || found !== ''){
+        linkItem['subCategoryTitle'] = found.title;
       }
       return linkItem;
     });
+    // Sort by category and sub category
+    const output = this.sortByCategory(linkCollection);
 
     return (
       <div>
         <Table className="dataViewTbl">
         <thead>
         <tr>
-          <th>Category</th>
+          <th>Category <i className="fas {this.state.isAscending ? 'fa-arrow-up' : 'fa-arrow-down'}"></i></th>
           <th>Sub Category</th>
           <th>Link</th>
           <th></th>
@@ -81,7 +95,7 @@ export default class LinkList extends React.Component{
         </thead>
         <tbody>
         {
-          output.map((item)=>{
+          output.map(item =>{
             return (
               <tr key={item.id}>
                 <td className="itemID">{item.categoryId}</td>

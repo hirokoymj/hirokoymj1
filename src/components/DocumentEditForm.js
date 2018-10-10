@@ -122,11 +122,9 @@ export default class DocumentEditForm extends React.Component{
               value={this.state.categoryId} 
               onChange={this.handleCategoryChange}>
               {
-                this.props.categoryItems.map((item)=>{
-                  return (
+                this.props.categoryItems.map((item)=>
                     <option key={item.id} value={item.id}>{item.name}</option>
-                  )
-                })            
+                )            
               }
             </FormControl>  
           </FormGroup>
@@ -138,11 +136,9 @@ export default class DocumentEditForm extends React.Component{
               value={this.state.subCategoryId} 
               onChange={this.handleSubCategoryChange}>
             {
-              filteredSubCategory.map((item)=>{
-                return (
+              filteredSubCategory.map((item)=>
                   <option key={item.subId} value={item.subId}>{item.title}</option>
-                )
-              })            
+              )            
             }
             </FormControl>            
           </FormGroup>
