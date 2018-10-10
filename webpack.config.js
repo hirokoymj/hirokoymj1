@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = (env) =>{
   console.log("env", env);
   const isProduction = env === 'production';
-  const CSSExtract = new ExtractTextPlugin('style.css');
+  const CSSExtract = new ExtractTextPlugin('hirokoymj.css');
 
   return {
     entry: './src/app.js',

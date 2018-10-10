@@ -27,9 +27,11 @@ I developed hirokoymj.com to share my technical articles. It is a single page we
 
 ### Screenshot
 ![Alt text](/public/images/screen-desktop.png?raw=true "desktop")
-
-
 ![Alt text](/public/images/screen-mobile.png?raw=true "mobile")
+
+
+## References:
+- [How to push the react app to Heroku Server](Heroku.md)
 
 
  
