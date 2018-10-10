@@ -9,7 +9,8 @@ import Footer from '../layout/Footer';
 // Tech Link Pages
 import DocumentPage from '../components/DocumentPage';
 import DocumentEditPage from '../components/DocumentEditPage';
-import WeatherPage from '../components/WeatherPage';
+// Weather Page
+//import WeatherPage from '../components/WeatherPage';
 // Admin Link Control pages
 import LinkControlPage from '../components/admin/LinkControlPage';
 import AddLinkPage from '../components/admin/AddLinkPage';
@@ -34,8 +35,6 @@ const AppRouter = () =>(
           <Route path="/" component={HomePage} exact={true} />
           <Route path="/document/:id" component={DocumentPage} />
           <Route path="/editDoc" component={DocumentEditPage} />
-          <Route path="/weather" component={WeatherPage} />
-
           <PrivateRoute path="/admin/categoryControlPage" component={CategoryControlPage} />
           <PrivateRoute path="/admin/addCategoryPage" component={AddCategoryPage} />
           <PrivateRoute path="/admin/editCategory/:id" component={EditCategoryPage} />

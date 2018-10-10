@@ -8,9 +8,9 @@ import authReducer from './reducers/authReducer';
 import {login, logout} from './actions/auth';
 import { Provider,  } from 'react-redux';
 //CSS
-import 'normalize.css/normalize.css';
+//import 'normalize.css/normalize.css';
 import './styles/hirokoymj.scss';
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const store = createStore(authReducer);
 

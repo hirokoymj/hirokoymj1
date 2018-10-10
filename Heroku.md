@@ -33,9 +33,14 @@ $ git add .
 $ git commit -am "make it better"
 $ git push heroku master
 ```
-
+4. Show remote repository
+   
 ```js
 git remote -v
+```
+
+5. Remove remote repo if necessary.
+```js
 
 ```
 
