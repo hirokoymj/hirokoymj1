@@ -6,7 +6,7 @@ import firebase from "./firebase/firebase3";
 import { createStore} from 'redux';
 import authReducer from './reducers/authReducer';
 import {login, logout} from './actions/auth';
-import { Provider,  } from 'react-redux';
+import { Provider } from 'react-redux';
 //CSS
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/hirokoymj.scss';

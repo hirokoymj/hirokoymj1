@@ -33,6 +33,10 @@
   cursor: pointer;
   color: #a2d0ff;
 }
+.fa-node-js{
+  cursor: pointer;
+  color: #a2d0ff;
+}
 .webpack {
   width: 60px;
   .inner-color{
@@ -49,6 +53,9 @@
 .fa-database{
   cursor: pointer;
   color: #a2d0ff;
+}
+.redux-icon{
+  width: 74px;
 }
 .bootstrap-icon{
   width: 60px;
@@ -81,6 +88,12 @@
   cursor: pointer;
   color: #a2d0ff;
 }
+.express{
+  font: 2.5em helvetica neue,open sans,sans-serif;
+  font-weight: 300; 
+  color: #a2d0ff;
+  padding: 12px 0; 
+}
 
 /* The skill icons turn on with color when mouse-over */
 .slick-slider{
@@ -97,6 +110,9 @@
     .fa-react{
       color: #00d8ff;
     }
+    .fa-node-js{
+      color: #339933;
+    }    
     .webpack {
       .inner-color{
         fill: #1c78c0;
@@ -105,9 +121,16 @@
         fill:#8ed6fb;
       }
     }
+
+    .redux-icon{
+      .path-group{
+        fill:#764ABC;
+      }
+    }
     .fa-database{
-      color: #ffcc01;
-    } 
+      color: #589636;
+    }    
+
     .bootstrap-icon{
       .bg{
         fill: #563D7C

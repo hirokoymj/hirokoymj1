@@ -73,7 +73,6 @@ export default class DocumentPage extends React.Component{
       });      
     }
 
-
     render(){
 			console.log('LinkPage - render');
 			return (

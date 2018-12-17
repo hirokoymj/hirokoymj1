@@ -1,5 +1,6 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 class HomeBio extends React.Component {
     render() {
@@ -10,26 +11,28 @@ class HomeBio extends React.Component {
                     <Col xs={12} sm={6}>
                     <div className="section-title">
                       <h3><img src="/images/dot.png" alt="About Me" /> About Me</h3>
-                      <p>I am a Front-End web developer in Los Angeles over ten years. My strong languages are <b>JavaScript and React.js</b> and I will learn and update new technologies using <a href="http://www.udemy.com">Udemy.com</a> and local meetup groups. My hobby is to read a book and play golf.</p>
+                      <p>
+                      I am a full-stack web developer in Los Angeles and have an experience over ten years. My strong skill is JavaScript especially <b>React and Redux</b>. This website is to post my technical tips and notes through my daily coding life.
+                      </p>
                      </div>
                     </Col>
                     <Col xs={12} sm={6}>
                         <div className="section-title">
                         <h3><img src="/images/dot.png" alt="Technology" /> Technology</h3>
-                          <p>I developed this website using <code>React.js</code> and <code>React router</code> to build a single page web application. Here are core technologies:</p>
+                          <p>
+                          Here is the list of my core technologies. I like to use <code>Redux middleware</code> in the web development because it makes the code cleaner and well-structured.
+                          </p>
                           <ul>
-                              <li>React.js</li>
-                              <li>React Router</li>
-                              <li>Redux</li>
-                              <li>React Modal</li>
-                              <li>React Toastify</li>
-                              <li>React slick</li>
-                              <li>React bootstrap</li>
-                              <li>Firebase Database</li>
-                              <li>Firebase Authentication</li>
-                              <li>Webpack</li>
-                              <li>JSONP</li>
-                              <li>Heroku web server</li>
+                            <li>React.js</li>
+                            <li>React router</li>
+                            <li>Redux</li>
+                            <li><a href="https://afternoon-thicket-91110.herokuapp.com/">Redux Middleware – Redux Thunk, Redux logger</a></li>
+                            <li><a href="https://github.com/hirokoymj/React-Redux-async-app">Async Actions</a></li>
+                            <li>Webpack</li>
+                            <li><a href="https://github.com/hirokoymj/React-Redux-async-app/tree/master/src/server">Node/Express</a></li>
+                            <li>RESTful API</li>
+                            <li>MongoDB</li>
+                            <li>Heroku</li> 
                           </ul>
                         </div>                    
                     </Col>
@@ -38,5 +41,4 @@ class HomeBio extends React.Component {
         );
     }
 }
-
 export default HomeBio;

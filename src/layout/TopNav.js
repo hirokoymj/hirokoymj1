@@ -48,7 +48,7 @@ class TopNav extends React.Component{
           <ul className={this.state.isShow ? 'menu show' : 'menu'}>
             <li><NavLink to="/document/js" activeClassName="is-active">JavaScript</NavLink></li>
             <li><NavLink to="/document/es6" activeClassName="is-active">ES6</NavLink></li>
-            {/*<li><NavLink to="/document/php" activeClassName="is-active">PHP</NavLink></li>*/}
+            <li><NavLink to="/document/react" activeClassName="is-active">React.js</NavLink></li>
             <li><NavLink to="/document/node" activeClassName="is-active">Node.js</NavLink></li>
             <li><NavLink to="/document/html" activeClassName="is-active">HTML/CSS</NavLink></li>
             { 
