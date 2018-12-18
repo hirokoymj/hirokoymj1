@@ -32,6 +32,7 @@ export default class DocumentPage extends React.Component{
       }
     }    
     getSubCategoryData(categoryId){
+      console.log(`getSubCategoryData: ${categoryId}`);
       const query = firebase.database().ref(`subcategories/${categoryId}`).orderByKey();
       query.on('value', (snapshot)=>{
           const result = [];
@@ -45,6 +46,7 @@ export default class DocumentPage extends React.Component{
               }
               result.push(tmp);
           }));
+          //console.log(result);
           this.setState(()=>({subCategoryItems: result}));
         });	
     }
@@ -63,12 +65,12 @@ export default class DocumentPage extends React.Component{
       });
     }
     onSubmit = (data)=>{
-      console.log("onSubmit");
+      //console.log("onSubmit");
       firebase.database().ref('links').push(data)
       .then(()=>{
         toast.success("Success to save!"); 
       }).catch((e)=>{
-        console.log('Error', e);
+        //console.log('Error', e);
         toast.error("Error - failed to save."); 
       });      
     }

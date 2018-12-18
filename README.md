@@ -4,6 +4,12 @@
 
 [http://www.hirokoymj.com](http://www.hirokoymj.com)
 
+### Firebase
+[Firebase console](https://console.firebase.google.com/?pli=1)
+
+## Heroku deploy
+[Deploy Heroku](Heroku.md)
+
 ### Core technologies: 
 
 - React.js
@@ -21,17 +27,11 @@
 - Heroku web server
 
 ### Description
-I developed hirokoymj.com to share my technical articles. It is a single page web application built with React.js.
 
-
-
-### Screenshot
-![homepage - desktop](screenshot/screen-desktop.png)
-![homepage - mobile](screenshot/screen-mobile.png)
 
 
 ## References:
-- [How to push the react app to Heroku Server](Heroku.md)
+- 
 
 
  

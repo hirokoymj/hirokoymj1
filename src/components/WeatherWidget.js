@@ -16,7 +16,6 @@ export default class WeatherWidget extends React.Component{
   }
   
   componentDidMount(){
-    console.log('WeatherWidget - componentDidMount');
     //LA downtown is the default
     const default_latitude = 34.0522342;  
     const default_lotitude = -118.2436849;
@@ -65,7 +64,7 @@ export default class WeatherWidget extends React.Component{
 
 
   getWeatherInfo = (lat, lon) =>{
-    console.log('getWeatherInfo');
+    //console.log('getWeatherInfo');
     let unit = "imperial";
     let type = "accurate";
     let apiKey = "be2d43efb7b89c5d69256d7ec44da9b8";
@@ -76,7 +75,7 @@ export default class WeatherWidget extends React.Component{
       .then( response => response.json())
       .then(
         (json) => {
-          console.log('parsed json', json);
+          //console.log('parsed json', json);
           let city = json.name;
           const {temp} = json.main;
           const {icon} = json.weather[0];

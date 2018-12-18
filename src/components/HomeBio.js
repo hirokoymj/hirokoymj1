@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 
 class HomeBio extends React.Component {
     render() {
-        console.log('HomeBio-render()');
         return (
             <Grid>
                 <Row className="homeBio">
@@ -20,16 +19,16 @@ class HomeBio extends React.Component {
                         <div className="section-title">
                         <h3><img src="/images/dot.png" alt="Technology" /> Technology</h3>
                           <p>
-                          Here is the list of my core technologies. I like to use <code>Redux middleware</code> in the web development because it makes the code cleaner and well-structured.
+                          Here is the list of my core technologies. I like to use <code>Redux middleware</code> in the React/Redux web development because it allows us to keep the API calls separated from the component. 
                           </p>
                           <ul>
                             <li>React.js</li>
                             <li>React router</li>
                             <li>Redux</li>
-                            <li><a href="https://afternoon-thicket-91110.herokuapp.com/">Redux Middleware – Redux Thunk, Redux logger</a></li>
-                            <li><a href="https://github.com/hirokoymj/React-Redux-async-app">Async Actions</a></li>
+                            <li>Redux Middleware – Redux Thunk, Redux logger</li>
+                            <li>Async Actions</li>
                             <li>Webpack</li>
-                            <li><a href="https://github.com/hirokoymj/React-Redux-async-app/tree/master/src/server">Node/Express</a></li>
+                            <li>Node/Express</li>
                             <li>RESTful API</li>
                             <li>MongoDB</li>
                             <li>Heroku</li> 
